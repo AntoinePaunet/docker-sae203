@@ -1,30 +1,85 @@
-<html>
-	<head>
-		<meta charset="UTF-8">
-	</head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SN Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Catégories</a>
+                    <ul class="submenu">
+                        <li><a href="#">Zip</a></li>
+                        <li><a href="#">Demi-Zip</a></li>
+                        <li><a href="#">Quarter-Zip</a></li>
+                        <li><a href="#">Pull</a></li>
+                        <li><a href="#">Tee-shirt</a></li>
+                        <li><a href="#">Casquette</a></li>
+                        <li><a href="#">Short</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Marques</a></li>
+                <li><a href="#">Homme</a></li>
+                <li><a href="#">Femme</a></li>
+            </ul>
+            <div class="icons">
+                <a href="#"><img src="likes_icon.png" alt="Likes"></a>
+                <a href="#"><img src="cart_icon.png" alt="Panier"></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="brand-section">
+            <!-- Contenu des zones rectangulaires pour chaque marque -->
+			<div class="brand-box">
+                <a href="#">
+                    <img src="logo_ralph_lauren.png" alt="Ralph Lauren">
+                    <p>Ralph Lauren</p>
+                </a>
+            </div>
 
-        <body>
-                <h1>Exemple Dockerfile + Github</h1>
+			<div class="brand-box">
+				<a href="#">
+					<img src="logo_stone_island.png" alt="Stone Island">
+                	<p>Stone Island</p>
+				</a>
+                
+            </div>
 
-                <p></p>
+			<div class="brand-box">
+				<a href="#">
+					<img src="logo_ami.png" alt="AMI">
+					<p>AMI</p>
+				</a>
+            </div>
 
-		<ul>
-			<li><p>Pour créer l'image avec dockerfile : </p></li>
-        	        <code>
-				docker build -t projetsae203
-	                </code>
-			<p>Exemple nom image : <code>httpd-juanlu</code></p>
-		</ul>
+			<div class="brand-box">
+				<a href="#">
+					<img src="logo_carhartt.png" alt="Carhartt">
+					<p>Carhartt</p>
+				</a>
+            </div>
 
-		<ul>
-			<li><p>Pour lancer l'application : </p></li>
-        	        <code>
-                	        docker run -d -p 8080:80 projetSae203
-	                </code>
-		</ul>
+			<div class="brand-box">
+				<a href="#">
+					<img src="logo_stussy.png" alt="Stussy">
+					<p>Stussy</p>
+				</a>
+            </div>
 
-		<ul>
-	                <li><p>Allez sur un navigateur et tapez localhost:8080</p></li>
-		</ul>
-        </body>
+			<div class="brand-box">
+				<a href="#">
+					<img src="logo_nike.png" alt="Nike">
+					<p>Nike</p>
+				</a>
+            </div>
+            <!-- Répéter pour chaque marque -->
+        </section>
+    </main>
+</body>
 </html>
