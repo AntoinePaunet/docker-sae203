@@ -11,6 +11,7 @@ export default class Jeu
 		this.tpsBlanc = 600;
 		this.tpsNoir = 600;
 		this.tour = "Blanc";
+		
 	}
 
 

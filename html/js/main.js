@@ -12,3 +12,21 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 	ctrl.ySouris = e.clientY - rect.top;
 	console.log("Zone clickée", this.xSouris, this.ySouris);
 })
+
+/*
+canva.addEventListener('load',function(){
+    const ctx = canva.getContext("2d");
+
+    let lastTime = 0
+    function animate(timeStamp){
+        const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
+
+		ctrl.update();
+        ctrl.draw(ctx);
+
+        requestAnimationFrame(animate);
+    }
+    animate(0);
+});
+*/
