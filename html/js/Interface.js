@@ -44,6 +44,28 @@ export default class Interface
 			}
 		}
 	}
+
+	drawDeplacementsValides(deplacementsValides)
+	{
+		
+		for(let i = 1; i < deplacementsValides.length-1; i++)
+		{
+			for(let j = 1; j < deplacementsValides[0].length-1; j++)
+			{
+				if(deplacementsValides[i][j] = 1) 
+				{
+					this.ctx.beginPath();
+					this.ctx.arc((i-1) * 87.5 + 42.5, (j-1) * 87.5 + 42.5, 40, 0, Math.PI * 2);
+			
+					this.ctx.fillStyle = 'red';
+			
+					this.ctx.fill();
+			
+					this.ctx.closePath();
+				}
+			}
+		}
+	}
 }
 
 
