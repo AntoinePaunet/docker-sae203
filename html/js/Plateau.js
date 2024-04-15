@@ -50,7 +50,6 @@ export default class Plateau
 
 		for( let i = 0 ; i < this.tabPieces.length ; i++ )
 		{
-			console.log("ok")
 			console.log(this.tabPieces[i] , " ");
 		}
 
@@ -60,12 +59,15 @@ export default class Plateau
 
 	getPiece(x, y)
 	{
-		if(x < 1 || x > 9 || y < 1 || y > 9)
+		for(let i = 0 ; i < this.tabPieces.length ; i++)
 		{
-			return false;
+			if(this.tabPieces[i].lig == x && this.tabPieces[i].col == y)
+			{
+				return this.tabPieces[i];
+			}
 		}
 
-		return this.plateau[x,y];
+		return null;
 	}
 
 	setPiece(x, y, piece)
