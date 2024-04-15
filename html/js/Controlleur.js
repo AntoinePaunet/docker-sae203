@@ -13,6 +13,12 @@ export default class Controlleur
 		this.jeu = new Jeu();
 		this.ySouris = 0;
 		this.xSouris = 0;
+		this.start()
+	}
+
+
+	start()
+	{
 		setInterval(this.interface.drawMap(), 16.67);
 	}
 
@@ -22,7 +28,6 @@ export default class Controlleur
 	}
 
 }
-
 /*
 let canva = document.getElementById("plateau");
 

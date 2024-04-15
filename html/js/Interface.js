@@ -8,7 +8,15 @@ export default class Interface
 
 	drawMap()
 	{
-		this.ctx.clearRect(0, 0, 700, 700)
+		this.ctx.clearRect(0, 0, 700, 700);
+
+		let bg = new Image();
+		bg.src = "../images/plateau.png"
+		this.ctx.drawImage(bg, 0, 0)
+
+
+		let imgPiece = new Image();
+		imgPiece.src = "../images/pieces.png"
 
 		for (let i = 0; i < this.plateau.length ; i++)
 		{
@@ -16,12 +24,7 @@ export default class Interface
 			{
 				if(!this.plateau[i][j] == 15 && !this.plateau[i][j] == 0)
 				{
-					ctx.drawImage
-					(
-						this.image, 
-						this.plateau[i][j] * 80, 0, 80, 80, 
-						i, j, 80, 80
-					);
+					ctx.drawImage(imgPiece, this.plateau[i][j] * 80, 0, 80, 80, i, j, 80, 80);
 				}
 			}
 		}
