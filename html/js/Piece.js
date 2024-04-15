@@ -1,33 +1,25 @@
 export default class Piece
 {
-	// attributs "static private"
-	static #NB_LIG = 8;
-	static #NB_COL = 8;
-	static #TALLE_IMG = 80;
-	
-	// attributs "protected"
-	lig;
-	col;
-
-	// attibuts "private"
-	#num
+	static NB_LIG = 8;
+	static NB_COL = 8;
+	static TALLE_IMG = 80;
 
 	constructor(lig, col, num)
 	{
-		this.#num = num;
+		this.num = num;
 		this.lig = lig;
 		this.col = col;
 		this.selectionner = false;
 		if(lig < 0) this.lig = 0;
-		if(lig > Piece.#NB_LIG) this.lig = Piece.#NB_LIG-1;
+		if(lig > Piece.NB_LIG) this.lig = Piece.NB_LIG-1;
 		if(col < 0) this.col = 0;
-		if(col > Piece.#NB_COL) this.col = Piece.#NB_COL-1;
+		if(col > Piece.NB_COL) this.col = Piece.NB_COL-1;
 			
     }
 
 	deplacementValide(ligDest, colDest) {return true;}
 	
-	getNum    () {return this.#num;}
+	getNum    () {return this.num;}
 	getLigne  () {return this.lig;}
 	getColonne() {return this.col;}
 
@@ -62,12 +54,12 @@ export default class Piece
 	{
 		if(    !(ligDest === this.lig && colDest === this.col)
 			|| !this.deplacementValide(ligDest,colDest) 
-			|| tabPlateau.getPiece(ligDest, colDest) === 15
+			|| tabPlateau[ligDest][colDest] === 15
 			|| this.autrePieceMemeCouleur(ligDest, colDest, tabPlateau))
 			return false;
  
-		plateau.setPiece(this.lig, this.col, 0);
-		plateau.setPiece(ligDest,   colDest,   this.#num);
+		tabPlateau[this.lig][this.col] = 0;
+		tabPlateau[ligDest][colDest] = this.num;
 		this.lig = ligDest;
 		this.col = colDest;
 		return true;
@@ -75,8 +67,8 @@ export default class Piece
 
 	autrePieceMemeCouleur(ligDest, colDest, tabPlateau)
 	{
-		if(tabPlateau.getPiece(ligDest, colDest) === 0) return false
+		if(tabPlateau[ligDest][colDest] === 0) return false
 		
-		return Math.abs(tabPlateau.getPiece(ligDest, colDest) - this.#num) <= 6;
+		return Math.abs(tabPlateau[ligDest][colDest] - this.num) <= 6;
 	}
 }
