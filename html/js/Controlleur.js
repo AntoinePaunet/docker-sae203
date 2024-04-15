@@ -20,6 +20,7 @@ export default class Controlleur
 
 }
 
+/*
 let canva = document.getElementById("plateau");
 
 let ctrl = new Controlleur(canva);
@@ -31,3 +32,4 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 	ctrl.ySouris = e.clientY - rect.top;
 	console.log("Zone clickée", this.xSouris, this.ySouris);
 })
+*/

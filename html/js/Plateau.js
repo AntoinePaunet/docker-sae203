@@ -1,6 +1,7 @@
+
+
 export default class Plateau
 {
-
 	constructor()
 	{
 		this.plateau = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
