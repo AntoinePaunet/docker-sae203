@@ -9,9 +9,6 @@ export default class Interface
 	drawMap()
 	{
 		this.ctx.clearRect(0, 0, 700, 700)
-		console.log("test");
-
-
 
 		for (let i = 0; i < this.plateau.length ; i++)
 		{
@@ -28,6 +25,8 @@ export default class Interface
 				}
 			}
 		}
-		requestAnimationFrame(this.drawMap());
 	}
 }
+
+
+
