@@ -17,7 +17,7 @@ export default class Piece
 			
     }
 
-	deplacementValide(ligDest, colDest) {return true;}
+	deplacementValide(ligDest, colDest) {}
 	
 	getNum    () {return this.num;}
 	getLigne  () {return this.lig;}
@@ -40,14 +40,14 @@ export default class Piece
 		{
 			for(let j = 1; j < tabPlateau[0].length-1; j++)
 			{
-				if(    tabPlateau[i][j] === 0 
-					&& this.deplacementValide(i, j) 
-					&& !this.autrePieceMemeCouleur(i, j, tabPlateau))
+				if(    this.deplacementValide(i, j)  	
+					//&& !this.autrePieceMemeCouleur(i, j, tabPlateau)
+				)
 					deplacementsValides[i][j] = 1;
 			}
 		}
 
-		console.log(deplacementsValides)
+		//console.log(deplacementsValides)
 
 		return deplacementsValides;
 	}

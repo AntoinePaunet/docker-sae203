@@ -21,12 +21,12 @@ export default class Interface
 		{
 			if(this.classPlateau.tabPieces[i].selectionner != null && this.classPlateau.tabPieces[i].selectionner)
 			{
-
+				console.log(this.classPlateau.tabPieces[i]);
 				this.drawDeplacementsValides(this.classPlateau.tabPieces[i].selection(this.plateau))
 
 				this.ctx.beginPath();
 
-				console.log(this.classPlateau.tabPieces[i].lig, (this.classPlateau.tabPieces[i].col))
+				//console.log(this.classPlateau.tabPieces[i].lig, (this.classPlateau.tabPieces[i].col))
 
 				this.ctx.arc((this.classPlateau.tabPieces[i].lig * 87.5) + 42.5, (this.classPlateau.tabPieces[i].col * 87.5) + 42.5, 40, 0, Math.PI * 2);
 		

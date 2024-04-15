@@ -6,6 +6,8 @@ export default class Tour extends Piece
 
     déplacementValide(ligDest, colDest)
     {
-        return ligDest==this._lig || colDest==this._col;
+		console.log(ligDest, colDest);
+		console.log(this.lig, this.col);
+        return ligDest==this.lig || colDest==this.col;
     }
 }

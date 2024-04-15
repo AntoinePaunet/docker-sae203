@@ -6,6 +6,8 @@ export default class Pion extends Piece
 
 	deplacementValide(ligDest, colDest)
 	{
-		return Math.abs(ligDest-this._lig) == 1 && Math.abs(colDest-this._col) == 1;
+		console.log(ligDest, colDest);
+		console.log(this.lig, this.col);
+		return Math.abs(ligDest-this.lig) == 1 && Math.abs(colDest-this.col) == 1;
 	}
 }
