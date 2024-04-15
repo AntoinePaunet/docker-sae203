@@ -45,7 +45,7 @@ class Jeu
 		}
 	}
 
-	
+
 	getTour()
 	{
 		return this.tour;
@@ -60,5 +60,10 @@ class Jeu
 		}else{
 			this.tour = "Noir";
 		}
+	}
+
+	deplacer(xDep, yDep, xArr, yArr)
+	{
+		this.plateau.getPiece(xDep, yDep).deplacer(xArr, yArr, this.plateau);
 	}
 }
