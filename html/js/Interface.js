@@ -17,10 +17,13 @@ export default class Interface
 
 
 		
-		for(let i = 0 ; i < this.classPlateau.tabPieces.length ; i++)
+		for(let i = 0 ; i < this.classPlateau.tabPieces.length ; i++) //Selon la pièce selectionnée
 		{
 			if(this.classPlateau.tabPieces[i].selectionner != null && this.classPlateau.tabPieces[i].selectionner)
 			{
+
+				this.drawDeplacementsValides(this.classPlateau.tabPieces[i].selection(this.plateau))
+
 				this.ctx.beginPath();
 
 				console.log(this.classPlateau.tabPieces[i].lig, (this.classPlateau.tabPieces[i].col))
@@ -58,9 +61,10 @@ export default class Interface
 		{
 			for(let j = 1; j < deplacementsValides[0].length-1; j++)
 			{
-				if(deplacementsValides[i][j] = 1) 
+				if(deplacementsValides[i][j] == 1) 
 				{
 					this.ctx.beginPath();
+					
 					this.ctx.arc((i-1) * 87.5 + 42.5, (j-1) * 87.5 + 42.5, 40, 0, Math.PI * 2);
 			
 					this.ctx.fillStyle = 'red';

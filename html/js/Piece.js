@@ -25,16 +25,16 @@ export default class Piece
 
 	selection(tabPlateau)  
 	{
-		deplacementsValides = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
-		                        [15, 15, 15, 15, 15, 15, 15, 15, 15, 15] ];
+		let deplacementsValides = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
+		                            [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                            [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        	[15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        	[15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                       	 	[15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                       	 	[15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        	[15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        	[15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15] ];
 		
 		for(let i = 1; i < tabPlateau.length-1; i++)
 		{
@@ -42,10 +42,12 @@ export default class Piece
 			{
 				if(    tabPlateau[i][j] === 0 
 					&& this.deplacementValide(i, j) 
-					&& !this.autrePieceMemeCouleur(tabPlateau)) 
+					&& !this.autrePieceMemeCouleur(i, j, tabPlateau))
 					deplacementsValides[i][j] = 1;
 			}
 		}
+
+		console.log(deplacementsValides)
 
 		return deplacementsValides;
 	}
