@@ -20,9 +20,24 @@ export default class Controlleur
 	clickedAt(x, y)
 	{
 		let piece = this.plateau.getPiece(x, y);
-		console.log(piece.selectionner)
+
+		if(piece.selectionner)
+		{
+			piece.selectionner = false;
+			return;
+		}
+
 		if( piece != null )
 		{
+
+			for(let i = 0 ; i < this.plateau.tabPieces.length ; i++)
+			{
+				if(this.plateau.tabPieces[i].selectionner)
+				{
+					this.plateau.tabPieces[i].selectionner = false;
+				}
+			}
+
 			piece.selectionner = !piece.selectionner; //On remet la piece dans sa forme inverse
 		}
 	}
