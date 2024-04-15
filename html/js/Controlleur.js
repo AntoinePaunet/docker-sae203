@@ -11,10 +11,13 @@ export default class Controlleur
 		this.plateau = new Plateau();
 		this.interface = new Interface(this.ctx, this.plateau.plateau);
 		this.jeu = new Jeu();
+		this.tabPiece = [];
 		this.ySouris = 0;
 		this.xSouris = 0;
-		this.start()
+		this.start();
 	}
+
+
 
 
 	start()

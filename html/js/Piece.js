@@ -46,6 +46,4 @@ export default class Piece
 		this._col = colDest;
 		return true;
 	}
-
-
 }

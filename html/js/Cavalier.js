@@ -1,3 +1,6 @@
+import Piece from "./Piece.js";
+
+
 export default class Cavalier extends Piece 
 {
 	constructor(lig, col, num) {super(lig, col, num)}
