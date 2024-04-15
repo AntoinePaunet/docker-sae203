@@ -4,6 +4,7 @@ export default class Interface
 	{
 		this.ctx = ctx;
 		this.plateau = plateau;
+		this.imgPieces = '../images/pieces.png';
 	}
 
 	drawMap()
@@ -14,11 +15,12 @@ export default class Interface
 		{
 			for(let j = 0 ; j < this.plateau[0].length ; j++)
 			{
-				if(!this.plateau[i][j] == 15 && !this.plateau[i][j] == 0)
+				if(!(this.plateau[i][j] == 15 || this.plateau[i][j] == 0))
 				{
-					ctx.drawImage
+					console.log("Hello world !")
+					this.ctx.drawImage
 					(
-						this.image, 
+						this.imgPieces, 
 						this.plateau[i][j] * 80, 0, 80, 80, 
 						i, j, 80, 80
 					);

@@ -19,7 +19,6 @@ window.addEventListener('load',function(){
 
         ctrl.interface.drawMap();
 
-		console.log("Hello world !")
         requestAnimationFrame(animate);
     }
     animate();
