@@ -33,6 +33,7 @@ export default class Plateau
 		{
 			for ( let j = 0 ; j < this.plateau[0].length ; j++)
 			{
+				console.log(this.plateau[i][j]%7);
 				switch(this.plateau[i][j]%7)
 				{
 					case 1 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
