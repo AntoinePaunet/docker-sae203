@@ -3,7 +3,6 @@ export default class Piece
 	// attributs "static private"
 	static #NB_LIG = 8;
 	static #NB_COL = 8;
-
 	static #TALLE_IMG = 80;
 	
 	// attributs "protected"
