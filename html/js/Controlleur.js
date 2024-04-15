@@ -1,39 +1,36 @@
 class Controlleur
 {
-	constructor()
+	constructor(canva, plateau, jeu)
 	{
-		this.canva = document.getElementById("plateau");
+		this.canva = canva;
 		this.ctx = this.canva.getContext('2d');
+		this.plateau = plateau;
+		this.jeu = jeu;
 		this.ySouris = 0;
 		this.xSouris = 0;
-		this.game();
 	}
 
-
-	game()
+	selectPiece(xSouris, ySouris)
 	{
-		while(true)
-		{
-			this.getClickedZone();
-		}
-	}
-
-
-
-	getClickedZone()
-	{
-		this.canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
-		{
-			let rect = canvas.getBoundingClientRect();
-    		xSouris = PostionCurseurX(canvas, e);
-    		ySouris = PostionCurseurY(canvas, e);
-			this.xSouris = e.clientX - rect.left;
-			this.ySouris = e.clientY - rect.top;
-			console.log("Zone clickée", this.xSouris, this.ySouris);
-		})
 
 	}
+
 }
 
+//Démarrage du jeu
 
-let ctrl = new Controlleur;
+let canva = document.getElementById("plateau");
+let plateau = new Plateau();
+
+
+let ctrl = new Controlleur(canva, new Plateau, new Jeu);
+
+
+
+canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
+{
+	let rect = canva.getBoundingClientRect();
+	ctrl.xSouris = e.clientX - rect.left;
+	ctrl.ySouris = e.clientY - rect.top;
+	console.log("Zone clickée", this.xSouris, this.ySouris);
+})
