@@ -47,13 +47,4 @@ export default class Piece
 		this._col = colDest;
 		return true;
 	}
-
-	draw(ctx)
-	{
-		ctx.drawImage(
-			this.image, 
-			(this.#num-1) * Piece.#TALLE_IMG, 0,      Piece.#TALLE_IMG, Piece.#TALLE_IMG, 
-            this.x,                           this.y, Piece.#TALLE_IMG, Piece.#TALLE_IMG
-		);
-	}
 }

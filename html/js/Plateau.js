@@ -17,6 +17,28 @@ export default class Plateau
 																		];
 		this.length = 8;
 		this.nbPieces = 32;
+		this.tabPieces = [];
+	}
+
+	genererPieces()
+	{
+		let cpt = 0;
+		for( let i = 0 ; i < this.plateau.length ; i++ )
+		{
+			for ( let j = 0 ; j < this.plateau[0].length ; j++)
+			{
+				switch(this.plateau[i][j]%7)
+				{
+					case 1 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+					case 2 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+					case 3 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+					case 4 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+					case 5 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+					case 6 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+					case 7 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
+				}
+			}
+		}
 	}
 
 
