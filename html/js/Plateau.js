@@ -47,13 +47,23 @@ export default class Plateau
 				}
 			}
 		}
+	}
 
-		for( let i = 0 ; i < this.tabPieces.length ; i++ )
+
+	getPieceTest(x, y)
+	{
+		console.log(x, y)
+		for(let i = 0 ; i < this.tabPieces.length ; i++)
 		{
-			console.log(this.tabPieces[i] , " ");
+			if(this.tabPieces[i].lig == x && this.tabPieces[i].col == y)
+			{
+				return this.tabPieces[i];
+			}
 		}
+		console.log("Erreur")
 
 
+		return null;
 	}
 
 
@@ -72,12 +82,7 @@ export default class Plateau
 
 	setPiece(x, y, piece)
 	{
-		if(x < 1 || x > 9 || y < 1 || y > 9)
-		{
-			return false;
-		}
-
-		this.tabPlateau[x,y] = piece;
+		this.plateau[x,y] = piece;
 	}
 }
 

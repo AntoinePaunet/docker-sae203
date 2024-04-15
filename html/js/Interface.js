@@ -1,9 +1,10 @@
 export default class Interface
 {
-	constructor(ctx, plateau)
+	constructor(ctx, plateau, plateauClass)
 	{
 		this.ctx = ctx;
 		this.plateau = plateau;
+		this.classPlateau = plateauClass;
 	}
 
 	drawMap()
@@ -24,6 +25,20 @@ export default class Interface
 			{
 				if(!(this.plateau[i][j] == 15 || this.plateau[i][j] == 0))
 				{
+					if(this.classPlateau.getPiece(i, j) != null && this.classPlateau.getPiece(i,j).selectionner)
+					{
+						this.ctx.beginPath();
+
+						console.log(this.classPlateau.getPieceTest(i, j).lig, (this.classPlateau.getPieceTest(i, j).col))
+
+						this.ctx.arc((this.classPlateau.getPiece(i, j).lig * 87.5) + 42.5, (this.classPlateau.getPiece(i, j).col * 87.5) + 42.5, 40, 0, Math.PI * 2);
+				
+						this.ctx.fillStyle = 'green';
+				
+						this.ctx.fill();
+				
+						this.ctx.closePath();
+					}
 					this.ctx.drawImage(imgPiece, (this.plateau[i][j]-1) * 80, 0, 80, 80, (i-1)*87.5, (j-1)*87.5, 87.5, 87.5);
 				}
 			}

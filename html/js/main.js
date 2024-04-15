@@ -8,14 +8,10 @@ let ctrl = new Controlleur(canva);
 canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
 {
 	let rect = canva.getBoundingClientRect();
-	ctrl.xSouris = e.clientX - rect.left;
-	ctrl.ySouris = e.clientY - rect.top;
-	console.log("Zone clickée", this.xSouris, this.ySouris);
+	let x = e.clientX - rect.left;
+	let y = e.clientY - rect.top;
 
-    if(ctrl.plateau.getPiece(this.xSouris / 87,5, this.ySouris / 87,5) != null )
-    {
-        
-    }
+    ctrl.clickedAt(Math.floor(x / 87.5), Math.floor(y / 87.5));
 })
 
 
