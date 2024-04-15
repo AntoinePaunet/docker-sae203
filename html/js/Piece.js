@@ -3,6 +3,9 @@ export default class Piece
 	// attributs "static private"
 	static #NB_LIG = 8;
 	static #NB_COL = 8;
+
+	static #IMG_WIDTH  = 50;
+	static #IMG_HEIGHT = 50;
 	
 	// attributs "protected"
 	_lig;
@@ -44,5 +47,15 @@ export default class Piece
 		this._lig = ligDest;
 		this._col = colDest;
 		return true;
+	}
+
+	draw(ctx)
+	{
+		context.drawImage
+		(
+			this.image, 
+			(this.#num-1) * Piece.#IMG_WIDTH, 0,                             Piece.#IMG_WIDTH, Piece.#IMG_HEIGHT, 
+            this._lig * Piece.#IMG_WIDTH,     this._col * Piece.#IMG_HEIGHT, Piece.#IMG_WIDTH, Piece.#IMG_HEIGHT
+		);
 	}
 }
