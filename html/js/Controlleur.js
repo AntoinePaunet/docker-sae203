@@ -13,6 +13,12 @@ export default class Controlleur
 		this.jeu = new Jeu();
 		this.ySouris = 0;
 		this.xSouris = 0;
+		this.start()
+	}
+
+
+	start()
+	{
 		setInterval(this.interface.drawMap(), 16.67);
 	}
 
@@ -22,17 +28,3 @@ export default class Controlleur
 	}
 
 }
-
-/*
-let canva = document.getElementById("plateau");
-
-let ctrl = new Controlleur(canva);
-
-canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
-{
-	let rect = canva.getBoundingClientRect();
-	ctrl.xSouris = e.clientX - rect.left;
-	ctrl.ySouris = e.clientY - rect.top;
-	console.log("Zone clickée", this.xSouris, this.ySouris);
-})
-*/
