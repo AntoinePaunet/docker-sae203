@@ -1,4 +1,4 @@
-class Interface
+export default class Interface
 {
 	constructor(ctx)
 	{

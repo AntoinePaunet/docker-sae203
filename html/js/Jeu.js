@@ -1,4 +1,4 @@
-class Jeu
+export default class Jeu
 {
 	constructor()
 	{
@@ -62,7 +62,12 @@ class Jeu
 		}
 	}
 
-	deplacer(xDep, yDep, xArr, yArr)
+	selection(x, y)
+	{
+		this.getPiece(x,y).selection();
+	}
+
+	deplacer(xArr, yArr)
 	{
 		this.plateau.getPiece(xDep, yDep).deplacer(xArr, yArr, this.plateau);
 	}

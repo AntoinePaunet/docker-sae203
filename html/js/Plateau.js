@@ -1,4 +1,4 @@
-class Plateau
+export default class Plateau
 {
 
 	constructor()
