@@ -3,7 +3,6 @@ export default class Piece
 	// attributs "static private"
 	static #NB_LIG = 8;
 	static #NB_COL = 8;
-
 	static #TALLE_IMG = 80;
 	
 	// attributs "protected"
@@ -48,12 +47,5 @@ export default class Piece
 		return true;
 	}
 
-	draw(ctx)
-	{
-		ctx.drawImage(
-			this.image, 
-			(this.#num-1) * Piece.#TALLE_IMG, 0,      Piece.#TALLE_IMG, Piece.#TALLE_IMG, 
-            this.x,                           this.y, Piece.#TALLE_IMG, Piece.#TALLE_IMG
-		);
-	}
+
 }
