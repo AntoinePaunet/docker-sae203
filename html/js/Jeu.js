@@ -1,4 +1,7 @@
-class Jeu
+import Plateau from "./Plateau.js";
+import Piece from "./Piece.js";
+
+export default class Jeu
 {
 	constructor()
 	{
@@ -14,11 +17,11 @@ class Jeu
 	genererPiece()
 	{
 		let cpt = 0;
-		for(i = 0; i < this.plateau.plateau.length ; i++)
+		for(let i = 0; i < this.plateau.plateau.length ; i++)
 		{
-			for(j = 0 ; j < this.plateau.plateau[0].length ; j++)
+			for(let j = 0 ; j < this.plateau.plateau[0].length ; j++)
 			{
-				this.tabPion[cpt] = new Piece(j, i, this.plateau.plateau[i][j]);
+				this.tabPiece[cpt] = new Piece(j, i, this.plateau.plateau[i][j]);
 				cpt++;
 			}
 		}
@@ -62,7 +65,12 @@ class Jeu
 		}
 	}
 
-	deplacer(xDep, yDep, xArr, yArr)
+	selection(x, y)
+	{
+		this.getPiece(x,y).selection();
+	}
+
+	deplacer(xArr, yArr)
 	{
 		this.plateau.getPiece(xDep, yDep).deplacer(xArr, yArr, this.plateau);
 	}
