@@ -29,7 +29,7 @@ export default class Piece
 	getLigne  () {return this._lig;}
 	getColonne() {return this._col;}
 
-	selection()
+	selection() {}
 
 	deplacer(ligDest, colDest, plateau)
 	{
