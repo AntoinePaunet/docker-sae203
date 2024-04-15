@@ -51,7 +51,7 @@ export default class Piece
 
 	draw(ctx)
 	{
-		context.drawImage
+		ctx.drawImage
 		(
 			this.image, 
 			(this.#num-1) * Piece.#IMG_WIDTH, 0,                             Piece.#IMG_WIDTH, Piece.#IMG_HEIGHT, 
