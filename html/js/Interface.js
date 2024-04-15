@@ -24,7 +24,7 @@ export default class Interface
 			{
 				if(!(this.plateau[i][j] == 15 || this.plateau[i][j] == 0))
 				{
-					this.ctx.drawImage(imgPiece, this.plateau[i][j] * 80, 0, 80, 80, i, j, 80, 80);
+					this.ctx.drawImage(imgPiece, (this.plateau[i][j]-1) * 80, 0, 80, 80, (i-1)*87.5, (j-1)*87.5, 87.5, 87.5);
 				}
 			}
 		}
