@@ -4,8 +4,7 @@ export default class Piece
 	static #NB_LIG = 8;
 	static #NB_COL = 8;
 
-	static #IMG_WIDTH  = 50;
-	static #IMG_HEIGHT = 50;
+	static #TALLE_IMG = 80;
 	
 	// attributs "protected"
 	_lig;
@@ -51,11 +50,10 @@ export default class Piece
 
 	draw(ctx)
 	{
-		ctx.drawImage
-		(
+		ctx.drawImage(
 			this.image, 
-			(this.#num-1) * Piece.#IMG_WIDTH, 0,                             Piece.#IMG_WIDTH, Piece.#IMG_HEIGHT, 
-            this._lig * Piece.#IMG_WIDTH,     this._col * Piece.#IMG_HEIGHT, Piece.#IMG_WIDTH, Piece.#IMG_HEIGHT
+			(this.#num-1) * Piece.#TALLE_IMG, 0,                            Piece.#TALLE_IMG, Piece.#TALLE_IMG, 
+            this._lig * Piece.#TALLE_IMG,     this._col * Piece.#TALLE_IMG, Piece.#TALLE_IMG, Piece.#TALLE_IMG
 		);
 	}
 }
