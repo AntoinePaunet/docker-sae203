@@ -13,20 +13,14 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 	console.log("Zone clickée", this.xSouris, this.ySouris);
 })
 
-/*
-canva.addEventListener('load',function(){
-    const ctx = canva.getContext("2d");
 
-    let lastTime = 0
-    function animate(timeStamp){
-        const deltaTime = timeStamp - lastTime;
-        lastTime = timeStamp;
+window.addEventListener('load',function(){
+    function animate(){
 
-		ctrl.update();
-        ctrl.draw(ctx);
+        ctrl.interface.drawMap();
 
+		console.log("Hello world !")
         requestAnimationFrame(animate);
     }
-    animate(0);
+    animate();
 });
-*/
