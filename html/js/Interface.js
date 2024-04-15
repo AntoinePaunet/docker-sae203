@@ -55,8 +55,7 @@ export default class Interface
 	}
 
 	drawDeplacementsValides(deplacementsValides)
-	{
-		
+	{		
 		for(let i = 1; i < deplacementsValides.length-1; i++)
 		{
 			for(let j = 1; j < deplacementsValides[0].length-1; j++)
@@ -70,7 +69,6 @@ export default class Interface
 					this.ctx.fillStyle = 'red';
 			
 					this.ctx.fill();
-			
 					this.ctx.closePath();
 				}
 			}
