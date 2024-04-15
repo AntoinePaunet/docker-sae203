@@ -11,6 +11,11 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 	ctrl.xSouris = e.clientX - rect.left;
 	ctrl.ySouris = e.clientY - rect.top;
 	console.log("Zone clickée", this.xSouris, this.ySouris);
+
+    if(ctrl.plateau.getPiece(this.xSouris / 87,5, this.ySouris / 87,5) != null )
+    {
+        
+    }
 })
 
 
