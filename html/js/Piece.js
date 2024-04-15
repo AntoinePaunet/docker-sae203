@@ -29,6 +29,8 @@ export default class Piece
 	getLigne  () {return this._lig;}
 	getColonne() {return this._col;}
 
+	selection() {}
+
 	deplacer(ligDest, colDest, plateau)
 	{
 		if(    !(ligDest === this._lig && colDest === this._col)
