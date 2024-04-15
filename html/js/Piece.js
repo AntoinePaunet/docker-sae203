@@ -30,20 +30,52 @@ export default class Piece
 	getLigne  () {return this._lig;}
 	getColonne() {return this._col;}
 
-	selection() {}
+	selection(tabPlateau)  
+	{
+		deplacementsValides = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15,  0,  0,  0,  0,  0,  0,  0,  0, 15],
+		                        [15, 15, 15, 15, 15, 15, 15, 15, 15, 15] ];
+		
+		for(let i = 1; i < tabPlateau.length-1; i++)
+		{
+			for(let j = 1; j < tabPlateau[0].length-1; j++)
+			{
+				if(    tabPlateau[i][j] === 0 
+					&& this.deplacementValide(i, j) 
+					&& !this.autrePieceMemeCouleur(tabPlateau)) 
+					deplacementsValides[i][j] = 1;
+			}
+		}
 
-	deplacer(ligDest, colDest, plateau)
+		return deplacementsValides;
+	}
+
+	deplacer(ligDest, colDest, tabPlateau)
 	{
 		if(    !(ligDest === this._lig && colDest === this._col)
 			|| !this.deplacementValide(ligDest,colDest) 
-			|| plateau.getPiece(ligDest, colDest) === 15
-			|| Math.abs(plateau.getPiece(ligDest, colDest) - this.#num) <= 6)
+			|| tabPlateau.getPiece(ligDest, colDest) === 15
+			|| this.autrePieceMemeCouleur(ligDest, colDest, tabPlateau))
 			return false;
  
-		plateau.setPiece(this._lig, this._col, 0);
-		plateau.setPiece(ligDest,   colDest,   this.#num);
+		tabPlateau.setPiece(this._lig, this._col, 0);
+		tabPlateau.setPiece(ligDest,   colDest,   this.#num);
 		this._lig = ligDest;
 		this._col = colDest;
 		return true;
+	}
+
+	autrePieceMemeCouleur(ligDest, colDest, tabPlateau)
+	{
+		if(tabPlateau.getPiece(ligDest, colDest) === 0) return false
+		
+		return Math.abs(tabPlateau.getPiece(ligDest, colDest) - this.#num) <= 6;
 	}
 }

@@ -33,22 +33,25 @@ export default class Plateau
 		{
 			for ( let j = 0 ; j < this.plateau[0].length ; j++)
 			{
-				console.log(this.plateau[i][j]%7);
-				switch(this.plateau[i][j]%7)
+				if(!(this.plateau[i][j] == 15 || this.plateau[i][j] == 0))
 				{
-					case 1 : this.tabPieces[cpt] = new Pion(i, j, this.plateau[i][j]);
-					case 2 : this.tabPieces[cpt] = new Tour(i, j, this.plateau[i][j]);
-					case 3 : this.tabPieces[cpt] = new Cavalier(i, j, this.plateau[i][j]);
-					case 4 : this.tabPieces[cpt] = new Fou(i, j, this.plateau[i][j]);
-					case 5 : this.tabPieces[cpt] = new Reine(i, j, this.plateau[i][j]);
-					case 6 : this.tabPieces[cpt] = new Roi(i, j, this.plateau[i][j]);
+					switch((this.plateau[i][j]%6) + 1)
+					{
+						case 1 : this.tabPieces[cpt] = new Pion(	i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+						case 2 : this.tabPieces[cpt] = new Tour(	i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+						case 3 : this.tabPieces[cpt] = new Cavalier(i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+						case 4 : this.tabPieces[cpt] = new Fou(		i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+						case 5 : this.tabPieces[cpt] = new Reine(	i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+						case 6 : this.tabPieces[cpt] = new Roi(		i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+					}
 				}
 			}
 		}
 
 		for( let i = 0 ; i < this.tabPieces.length ; i++ )
 		{
-			console.log(this.tabPieces[i] , " ")
+			console.log("ok")
+			console.log(this.tabPieces[i] , " ");
 		}
 
 
