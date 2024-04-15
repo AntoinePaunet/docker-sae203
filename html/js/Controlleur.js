@@ -13,7 +13,7 @@ export default class Controlleur
 		this.jeu = new Jeu();
 		this.ySouris = 0;
 		this.xSouris = 0;
-		this.interface.drawMap();
+		setInterval(this.interface.drawMap(), 16.67);
 	}
 
 	selectPiece(xSouris, ySouris)
