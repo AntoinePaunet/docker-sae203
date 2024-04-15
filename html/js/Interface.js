@@ -16,6 +16,25 @@ export default class Interface
 		this.ctx.drawImage(bg, 0, 0)
 
 
+		
+		for(let i = 0 ; i < this.classPlateau.tabPieces.length ; i++)
+		{
+			if(this.classPlateau.tabPieces[i].selectionner != null && this.classPlateau.tabPieces[i].selectionner)
+			{
+				this.ctx.beginPath();
+
+				console.log(this.classPlateau.tabPieces[i].lig, (this.classPlateau.tabPieces[i].col))
+
+				this.ctx.arc((this.classPlateau.tabPieces[i].lig * 87.5) + 42.5, (this.classPlateau.tabPieces[i].col * 87.5) + 42.5, 40, 0, Math.PI * 2);
+		
+				this.ctx.fillStyle = 'green';
+		
+				this.ctx.fill();
+		
+				this.ctx.closePath();
+			}
+		}
+
 		let imgPiece = new Image();
 		imgPiece.src = "../images/pieces.png"
 
@@ -25,24 +44,11 @@ export default class Interface
 			{
 				if(!(this.plateau[i][j] == 15 || this.plateau[i][j] == 0))
 				{
-					if(this.classPlateau.getPiece(i, j) != null && this.classPlateau.getPiece(i,j).selectionner)
-					{
-						this.ctx.beginPath();
-
-						console.log(this.classPlateau.getPieceTest(i, j).lig, (this.classPlateau.getPieceTest(i, j).col))
-
-						this.ctx.arc((this.classPlateau.getPiece(i, j).lig * 87.5) + 42.5, (this.classPlateau.getPiece(i, j).col * 87.5) + 42.5, 40, 0, Math.PI * 2);
-				
-						this.ctx.fillStyle = 'green';
-				
-						this.ctx.fill();
-				
-						this.ctx.closePath();
-					}
 					this.ctx.drawImage(imgPiece, (this.plateau[i][j]-1) * 80, 0, 80, 80, (i-1)*87.5, (j-1)*87.5, 87.5, 87.5);
 				}
 			}
 		}
+
 	}
 
 	drawDeplacementsValides(deplacementsValides)

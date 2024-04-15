@@ -60,9 +60,6 @@ export default class Plateau
 				return this.tabPieces[i];
 			}
 		}
-		console.log("Erreur")
-
-
 		return null;
 	}
 
