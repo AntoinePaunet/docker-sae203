@@ -3,7 +3,7 @@ class Plateau
 
 	constructor()
 	{
-		this.tabPlateau = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
+		this.plateau = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
 							[15, 2, 1, 0, 0, 0, 0, 7, 8, 15],
 							[15, 3, 1, 0, 0, 0, 0, 7, 9, 15],
 							[15, 4, 1, 0, 0, 0, 0, 7, 10, 15],
@@ -26,7 +26,7 @@ class Plateau
 			return false;
 		}
 
-		return this.tabPlateau[x,y];
+		return this.plateau[x,y];
 	}
 
 	setPiece(x, y, piece)
