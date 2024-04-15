@@ -1,85 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SN Shop</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Catégories</a>
-                    <ul class="submenu">
-                        <li><a href="#">Zip</a></li>
-                        <li><a href="#">Demi-Zip</a></li>
-                        <li><a href="#">Quarter-Zip</a></li>
-                        <li><a href="#">Pull</a></li>
-                        <li><a href="#">Tee-shirt</a></li>
-                        <li><a href="#">Casquette</a></li>
-                        <li><a href="#">Short</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Marques</a></li>
-                <li><a href="#">Homme</a></li>
-                <li><a href="#">Femme</a></li>
-            </ul>
-            <div class="icons">
-                <a href="#"><img src="likes_icon.png" alt="Likes"></a>
-                <a href="#"><img src="cart_icon.png" alt="Panier"></a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="brand-section">
-            <!-- Contenu des zones rectangulaires pour chaque marque -->
-			<div class="brand-box">
-                <a href="#">
-                    <img src="logo_ralph_lauren.png" alt="Ralph Lauren">
-                    <p>Ralph Lauren</p>
-                </a>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Echec</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+
+        <body>
+
+            <div class="menu">
+            <a href="#accueil">Accueil</a>
+            <a href="#about">À Propos</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
             </div>
 
-			<div class="brand-box">
-				<a href="#">
-					<img src="logo_stone_island.png" alt="Stone Island">
-                	<p>Stone Island</p>
-				</a>
-                
-            </div>
+            <div class="bande bande-gauche"></div>
+            <div class="bande bande-droite"></div>
 
-			<div class="brand-box">
-				<a href="#">
-					<img src="logo_ami.png" alt="AMI">
-					<p>AMI</p>
-				</a>
-            </div>
+        <div class="zone-centrale">
+            <canvas id="plateau" height="700px" width="700px"></canvas>
+        </div>
 
-			<div class="brand-box">
-				<a href="#">
-					<img src="logo_carhartt.png" alt="Carhartt">
-					<p>Carhartt</p>
-				</a>
-            </div>
-
-			<div class="brand-box">
-				<a href="#">
-					<img src="logo_stussy.png" alt="Stussy">
-					<p>Stussy</p>
-				</a>
-            </div>
-
-			<div class="brand-box">
-				<a href="#">
-					<img src="logo_nike.png" alt="Nike">
-					<p>Nike</p>
-				</a>
-            </div>
-            <!-- Répéter pour chaque marque -->
-        </section>
-    </main>
-</body>
+        </body>
 </html>
