@@ -28,5 +28,15 @@ class Plateau
 
 		return this.tabPlateau[x,y];
 	}
+
+	setPiece(x, y, piece)
+	{
+		if(x < 1 || x > 9 || y < 1 || y > 9)
+		{
+			return false;
+		}
+
+		this.tabPlateau[x,y] = piece;
+	}
 }
 
