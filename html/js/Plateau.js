@@ -7,8 +7,9 @@ import Fou from "./Fou.js";
 
 export default class Plateau
 {
-	constructor()
+	constructor(jeu)
 	{
+		this.jeu = jeu;
 		/*
 		this.initPlateau = [[ 8,  9, 10, 11, 12, 10,  9,  8],
 		                    [ 7,  7,  7,  7,  7,  7,  7,  7],
@@ -88,6 +89,7 @@ export default class Plateau
 			{ 
 				this.pieceSelectionnee = null;
 				this.deplacementEnCours = false;
+				this.jeu.setTour();
 			}
 	}
 

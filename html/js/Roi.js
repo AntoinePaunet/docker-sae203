@@ -5,7 +5,7 @@ export default class Roi extends Piece
     constructor(num, x, y) {super(num, x, y)}
 
     deplacementValide(xDest, yDest, tabPieces)
-    {		
+    {	
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) <= 1 
 			   && Math.abs(yDest-this.y) <= 1
@@ -21,7 +21,7 @@ export default class Roi extends Piece
 
 	#autrePiece(xDest, yDest, tabPieces)
 	{
-		return tabPieces[xDest][yDest] !== null;
+		return tabPieces[xDest][yDest] !== null && tabPieces[xDest][yDest].estMemeCouleur(this);
 	}
 
 	#positionAttaquee(xDest, yDest, tabPieces)
