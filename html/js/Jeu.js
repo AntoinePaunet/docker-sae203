@@ -5,14 +5,14 @@ export default class Jeu
 {
 	constructor()
 	{
-		this.plateau = new Plateau();
 		this.tpsBlanc = 600;
 		this.tpsNoir = 600;
 		this.tour = "Blanc";
 		this.finJeu = false;
+		this.plateau = new Plateau(this);
 	}
 
-	update(timeStamp)
+	update()
 	{
 		this.plateau.update();
 		this.finJeu = this.plateau.echecEtMat(this.tour);
@@ -27,8 +27,9 @@ export default class Jeu
 	{
 		let piece = this.plateau.tabPieces[x][y]
 
-		if(piece !== null && ((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "blanc")))
+		if(piece !== null && ((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "Blanc")))
 		{
+			console.log(false)
 			return false;
 		}
 
@@ -42,6 +43,7 @@ export default class Jeu
 		if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
 		{
 			this.plateau.deplacementEnCours = true;
+			this.setTour();
 		}
 		else
 		{
@@ -58,7 +60,7 @@ export default class Jeu
 	setTour()
 	{
 		if( this.tour == "Noir" )
-			this.tour == "Blanc";
+			this.tour = "Blanc";
 		else 
 			this.tour = "Noir";
 	}
