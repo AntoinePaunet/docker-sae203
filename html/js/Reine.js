@@ -42,7 +42,7 @@ export default class Reine extends Piece
             for (let k = 1; k < Math.abs(xDest - this.x); k++) 
 			{
 				piece = tabPieces[this.x + k * dirX][this.y + k * dirY];
-                if (piece !== null && piece instanceof Roi) return true;
+                if (piece !== null && !piece instanceof Roi) return true;
             }
         }
         return false;
