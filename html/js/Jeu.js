@@ -27,27 +27,41 @@ export default class Jeu
 	{
 		let piece = this.plateau.tabPieces[x][y]
 
-		if(piece !== null && ((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "Blanc")))
+		// if(piece != null && ((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "Blanc")))
+		// {
+		// 	console.log(false)
+		// 	return false;
+		// }
+		if(this.plateau.pieceSelectionnee == null && piece == null)
 		{
-			console.log(false)
-			return false;
+			return;
 		}
 
-		
 		if(this.plateau.pieceSelectionnee === piece)
 		{
 			this.plateau.pieceSelectionnee = null;
 			return;
 		}
 
+
+		this.plateau.pieceSelectionnee = piece;
+
+		if(this.plateau.pieceSelectionnee.num < 7 && this.tour == "Noir" || this.plateau.pieceSelectionnee.num > 6 && this.tour == "Blanc")
+		{
+			return;
+		}
+
+		if(piece != null && this.plateau.pieceSelectionnee.num % 7 == piece.num % 7)
+		{
+			return;
+		}
+
+	
 		if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
 		{
 			this.plateau.deplacementEnCours = true;
 			this.setTour();
-		}
-		else
-		{
-			this.plateau.pieceSelectionnee = piece;
+			return;
 		}
 	}
 
