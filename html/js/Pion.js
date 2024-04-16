@@ -12,6 +12,7 @@ export default class Pion extends Piece
 		
 		let res = xDest===this.x && Math.abs(yDest-this.y) <= distParcourable;
 		*/
+
 		return super.deplacementValide(xDest, yDest, tabPieces);
 	}
 }
