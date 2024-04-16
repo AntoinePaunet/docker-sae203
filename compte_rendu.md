@@ -1,0 +1,28 @@
+COMPTE RENDU SITE WEB 
+
+Notre site web propose de jouer aux Echecs, grâce à un mix de HTML, CSS et JavaScript.
+
+La structure du site est assez simple car nous voulions nons concentrer sur la partie JavaScript. 
+C'est un langage de programmation qui n'a encore jamais été travaillé en cours et qui est donc tout nouveau pour tous les membres du groupes.
+
+De ce fait, la partie HTML réuni un menu horizontal sur le top de la page, proposant les boutons :
+	- Comment jouer ?	(redirige vers un site expliquant les règles du jeu)
+	- Jouer 		(rien)
+	- Crédit 		(forcément ce bouton n'a pas d'utilité, il redirige donc vers une page Rick Roll)
+	- Compte rendu		(télécharge directement ce fichier pour le placer dans vos Téléchargements)
+
+Ensuite, plusieurs balises DIV ont été placée pour simplement créer différentes zones à l'écran qui seront exploitées par le programme JavaScript grâce à des Canvas principalement.
+L'écran est donc séparé en plusieurs zones : 
+	- une zone centrale 	(où sera affiché le plateau d'Echecs)
+	- une bande à gauche 	(pour afficher les pièces Noires qui ont été mangées)
+	- une bande à droite	(pour afficher les pièces Blanches qui ont été mangées)
+
+Pour une raison d'esthétisme, nous avons ajouté quelque bordures aux différents éléments de la page (bandes sur les côtés, zone centrale, menu horizontal, chronos). Notez la présence de la bordure en dégradé pour le menu horizontal afin d'éviter un mélange de couleurs moins ergonomique.
+
+L'ajout des chronomètres, en haut-à-gauche et en bas-à-droite du plateau, montrant le temps restant à chaque joueur pour jouer, un total de 600 secondes par joueur au début de la partie (10min par joueur).
+
+Nous avons choisi de mettre la taille de la zone qui accueille le plateau pour éviter toutes sortes de bugs qui serraient liés au coordonnées dans le jeu. Même chose pour ce qui est des bandes gauches et droites.
+Enfin le menu horizontal, sa largeur s'adapte en fonction de celle de la page pour garder une part de proportionnalité dans le rendu de la page web.
+
+Le chronomètre du haut est attribué au joueur avec les pièces noires, c'est une question d'ergonomie de le placer en haut car c'est le côté du plateau des noires, de plus la couleur de fond est noir pour rester dans le thème des pièces attribuées.
+Et inversement avec le chronomètre pour les pièces blanches, le fond est blanc et placé en bas à droite du plateau.
