@@ -40,7 +40,7 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
         {
             let tpsNoirDoc = document.getElementById("chronoNoir");
             jeu.tpsNoir--;
-            tpsNoirDoc.textContent = jeu.tpsNoir + "Seconde(s)";
+            tpsNoirDoc.textContent = jeu.tpsNoir + " Seconde(s)";
         }else{
             let tpsBlancDoc = document.getElementById("chronoBlanc");
             jeu.tpsBlanc--;
