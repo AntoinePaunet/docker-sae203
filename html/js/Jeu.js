@@ -25,7 +25,6 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
-		console.log(this.plateau);
 		let piece = this.plateau.tabPieces[x][y]
 
 		if(piece !== null && ((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "blanc")))
