@@ -1,7 +1,10 @@
 import Jeu from "./Jeu.js";
 
 
-let canva = document.getElementById("plateau");
+
+
+window.addEventListener('load',function(){
+    let canva = document.getElementById("plateau");
 let canvaBlanc = document.getElementById("canvaBlanc");
 let canvaNoir = document.getElementById("canvaNoir");
 const ctxBlanc = canvaBlanc.getContext("2d");
@@ -18,9 +21,8 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 
     jeu.clickedAt(Math.floor(x / 87.5), Math.floor(y / 87.5));
 })
-
-
-window.addEventListener('load',function(){
+    
+    
     const ctx = canva.getContext("2d");
 
 	function animate(){
