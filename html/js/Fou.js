@@ -10,6 +10,7 @@ export default class Fou extends Piece
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) == Math.abs(yDest-this.y)
 			   && !this.autrePiece(xDest, yDest, tabPieces)
+			   
 	}
 
 	autrePiece(xDest, yDest, tabPieces)

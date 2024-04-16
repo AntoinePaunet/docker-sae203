@@ -12,7 +12,7 @@ export default class Roi extends Piece
 			   && !this.#positionAttaquee(xDest, yDest, tabPieces);
     }
 
-	echecEtMat(tabPieces)
+	echecMat(tabPieces)
 	{
 		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) 
 		{
@@ -20,7 +20,7 @@ export default class Roi extends Piece
 			Piece.roiEnEchec = true;
 		}
 		Piece.roiEnEchec = false;
-		
+
 		return Piece.roiEnEchec;
 	}
 

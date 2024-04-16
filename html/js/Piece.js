@@ -1,7 +1,5 @@
 export default class Piece
 {
-	static roiEnEchec;
-	
 	constructor(num, x, y)
 	{
 		this.num = num;
@@ -20,7 +18,8 @@ export default class Piece
 	deplacementValide(xDest, yDest, tabPieces) 
 	{
 		return    !(xDest === this.x && yDest === this.y)
-		       && !this.estMemeCouleur(tabPieces[xDest][yDest]);
+		       && !this.estMemeCouleur(tabPieces[xDest][yDest])
+			   && !this.echecMatFutur(xDest, yDest, tabPieces);
 	}
 
 	estMemeCouleur(autrePiece)
@@ -71,5 +70,24 @@ export default class Piece
 	draw(ctx)
 	{
 		ctx.drawImage(this.imgPiece, (this.num-1) * 80, 0, 80, 80, this.xImg*87.5, this.yImg*87.5, 87.5, 87.5);
+	}
+
+	echecMatFutur(xDest, yDest, tabPieces) // On suppose que deplacement est valide
+	{
+		let tabPiecesBis = [];
+		
+		for( let i = 0 ; i < tabPieces.length ; i++ )
+		{
+			let tmp = [];
+			for ( let j = 0 ; j < tabPieces[0].length ; j++)
+			{
+				if(tabPieces[i][j] === this) tmp[j] = null;
+				else if(i === xDest && j === yDest)   tmp[j] = this
+				else tmp[j] = tabPieces[i][j];
+			}
+			tabPiecesBis.push(tmp);
+		}
+
+		return false;
 	}
 }

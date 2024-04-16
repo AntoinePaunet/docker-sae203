@@ -73,14 +73,13 @@ export default class Plateau
 		}
 	}
 
-	echecEtMat(tour)
+	echecMat(tour)
 	{
 		let roi = this.roiBlanc;
 		if(tour === "Blanc") roi = this.roiNoir;
 
-		return roi.echecEtMat(this.tabPieces);
+		return roi.echecMat(this.tabPieces);
 	}
-
 
 	update()
 	{

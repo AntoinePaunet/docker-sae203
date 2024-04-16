@@ -14,9 +14,8 @@ export default class Jeu
 
 	update()
 	{
-		console.log(this.tour);
 		this.plateau.update();
-		this.finJeu = this.plateau.echecEtMat(this.tour);
+		this.finJeu = this.plateau.echecMat(this.tour);
 	}
 
 	draw(ctx, ctxBlanc, ctxNoir)
@@ -32,8 +31,7 @@ export default class Jeu
 		{
 			this.plateau.pieceSelectionnee = null;
 		}
-		
-		else if (this.plateau.pieceSelectionnee === null && piece !== null && piece.getCouleur() === this.tour)
+		else if (piece !== null && piece.getCouleur() === this.tour)
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
