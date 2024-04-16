@@ -9,7 +9,6 @@ export default class Roi extends Piece
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) <= 1 
 			   && Math.abs(yDest-this.y) <= 1
-			   && !this.#autrePiece(xDest, yDest, tabPieces)
 			   && !this.#positionAttaquee(xDest, yDest, tabPieces);
     }
 
@@ -18,12 +17,6 @@ export default class Roi extends Piece
 		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) console.log("echec et mat")
 		return !this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces);
 	}
-
-	#autrePiece(xDest, yDest, tabPieces)
-	{
-		return tabPieces[xDest][yDest] !== null && tabPieces[xDest][yDest].estMemeCouleur(this);
-	}
-
 	#positionAttaquee(xDest, yDest, tabPieces)
 	{
 		for( let i = 0 ; i < tabPieces.length ; i++ )

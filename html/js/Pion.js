@@ -17,4 +17,6 @@ export default class Pion extends Piece
 										|| (xDest == this.x - 1 && yDest == this.y - 1 && this.num < 7 && (tabPieces[this.x-1][this.y-1] != null && tabPieces[this.x-1][this.y-1].getNum() >= 7));
 
 	}
+
+	
 }
