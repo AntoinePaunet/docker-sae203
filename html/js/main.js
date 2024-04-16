@@ -22,7 +22,6 @@ window.addEventListener('load',function(){
 	function animate(timeStamp){
 		const deltaTime = timeStamp - lastTime;
         lastTime = timeStamp;
-		console.log(timeStamp);
 
 		jeu.update(timeStamp)
         jeu.draw(ctx);
