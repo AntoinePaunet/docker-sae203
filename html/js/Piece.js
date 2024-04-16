@@ -17,6 +17,7 @@ export default class Piece
 	{
 		return    !(xDest === this.x && yDest === this.y)
 		       && !this.estMemeCouleur(tabPieces[xDest][yDest]);
+			   //&& !this.echecMatFutur(xDest, yDest, tabPieces);
 	}
 
 	estMemeCouleur(autrePiece)
@@ -31,6 +32,25 @@ export default class Piece
 		if (1 <= this.num && this.num <= 6)  return "Blanc";
 		if (7 <= this.num && this.num <= 12) return "Noir";
 		return "";
+	}
+
+	getType()
+	{
+		let retour = ""
+		
+		let typePiece = this.num;
+		if(typePiece > 6) typePiece -= 6;
+		switch(typePiece)
+		{
+			case 1  : retour = "Pion";     break;
+			case 2  : retour = "Tour";     break;
+			case 3  : retour = "Cavalier"; break;
+			case 4  : retour = "Fou";      break;
+			case 5  : retour = "Reine";    break;
+			case 6  : retour = "Roi";      break;
+		}
+
+		return retour;
 	}
 
 	getNum () {return this.num;}
@@ -67,5 +87,43 @@ export default class Piece
 	draw(ctx)
 	{
 		ctx.drawImage(this.imgPiece, (this.num-1) * 80, 0, 80, 80, this.xImg*87.5, this.yImg*87.5, 87.5, 87.5);
+	}
+
+	echecMatFutur(xDest, yDest, tabPieces) // On suppose que deplacement est valide
+	{
+		let tabPiecesBis = [];
+		
+		for( let i = 0 ; i < tabPieces.length ; i++ )
+		{
+			let tmp = [];
+			for ( let j = 0 ; j < tabPieces[0].length ; j++)
+			{
+				if(tabPieces[i][j] === this)        tmp[j] = null;
+				else if(i === xDest && j === yDest) tmp[j] = this
+				else                                tmp[j] = tabPieces[i][j];
+			}
+			tabPiecesBis.push(tmp);
+		}
+
+		let roi = this.#getRoi(tabPieces);
+
+		return roi.echecMat(tabPiecesBis)
+	}
+
+	#getRoi(tabPieces)
+	{
+		let roi = null;
+		
+		for( let i = 0 ; i < tabPieces.length ; i++ )
+		{
+			for ( let j = 0 ; j < tabPieces[0].length ; j++)
+			{
+				if(    tabPieces[i][j] !== null 
+					&& tabPieces[i][j].getType() === "Roi"
+				    && tabPieces[i][j].estMemeCouleur(this)) roi = tabPieces[i][j];
+			}
+		}
+
+		return roi;
 	}
 }

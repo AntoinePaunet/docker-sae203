@@ -14,9 +14,8 @@ export default class Jeu
 
 	update()
 	{
-		//console.log(this.tour);
 		this.plateau.update();
-		this.finJeu = this.plateau.echecEtMat(this.tour);
+		this.finJeu = this.plateau.echecMat(this.tour);
 	}
 
 	draw(ctx, ctxBlanc, ctxNoir)
@@ -27,24 +26,36 @@ export default class Jeu
 	clickedAt(x, y)
 	{
 		let piece = this.plateau.tabPieces[x][y];
-		
+
 		if(this.plateau.pieceSelectionnee === piece)
 		{
 			this.plateau.pieceSelectionnee = null;
 		}
+<<<<<<< HEAD
 		/*
 		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.tour)
+=======
+		else if (piece !== null && piece.getCouleur() === this.tour)
+>>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
 		else if (this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
 		{
 			this.plateau.deplacementEnCours = true;
+			if(piece != null && piece.getCouleur() == "Noir")
+			{
+				this.plateau.tabPieceNoir.push(piece);
+			}else if(piece != null){
+				this.plateau.tabPieceBlanche.push(piece);
+			}
 		}
 		*/
 		
+		
 
 		// mode debuggage (pas de tours)		
+<<<<<<< HEAD
 		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
 		{
 			this.plateau.pieceSelectionnee = piece;
@@ -61,6 +72,16 @@ export default class Jeu
 			this.plateau.deplacementEnCours = true;
 			console.log(this.plateau.tabPieceBlanche)
 		}
+=======
+	// 	else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
+	// 	{
+	// 		this.plateau.pieceSelectionnee = piece;
+	// 	}
+	// 	else if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+	// 	{
+	// 		this.plateau.deplacementEnCours = true;
+	// 	}
+>>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 	}
 
 	setTour()
