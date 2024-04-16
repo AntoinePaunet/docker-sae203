@@ -38,7 +38,7 @@ export default class Plateau
 		this.tabPieceNoir = [];
 
 		this.bg = new Image();
-		this.bg.src = "../images/plateau.png";
+		this.bg.src = "./plateau.png";
 	}
 
 	genererTabPieces()

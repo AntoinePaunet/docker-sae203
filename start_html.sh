@@ -9,5 +9,6 @@ APACHE_ROOT="."
 # Copier le fichier HTML vers le répertoire du serveur Apache
 cp "$HTML_FILE" "$APACHE_ROOT"
 
+node script.js
 # Ouvrir le fichier HTML dans le navigateur par défaut
 xdg-open "http://localhost/$(basename "$HTML_FILE")"

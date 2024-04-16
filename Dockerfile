@@ -1,15 +1,10 @@
-# Utiliser l'image Debian comme base
 FROM debian:latest
 
-RUN apt-get update && apt-get install -y apache2
-RUN apt-get update && apt-get install -y socket.io
-RUN apt-get update && apt-get install -y express
+RUN apt-get update && \
+    apt-get install -y apache2
 
+COPY /html /var/www/html
 
-COPY html/ /var/www/html/
+EXPOSE 80
 
-# Exposer le port 80 pour le trafic HTTP
-EXPOSE 3000
-
-# Commande pour démarrer Apache en mode démon
 CMD ["apache2ctl", "-D", "FOREGROUND"]
