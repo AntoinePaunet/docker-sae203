@@ -12,7 +12,7 @@ export default class Jeu
 		this.finJeu = false;
 	}
 
-	update()
+	update(timeStamp)
 	{
 		this.plateau.update();
 		this.finJeu = this.plateau.echecEtMat(this.tour);

@@ -75,40 +75,13 @@ export default class Plateau
 		let roi = this.roiBlanc;
 		if(tour === "Blanc") roi = this.roiNoir;
 
-		if(!this.#peutSeDeplacer(roi) && this.#estAttaque(roi)) console.log("echec et mat")
-		return !this.#peutSeDeplacer(roi) && this.#estAttaque(roi);
-	}
-	
-	#peutSeDeplacer(piece)
-	{
-		for( let i = 0 ; i < this.tabPieces.length ; i++ )
-		{	
-			for ( let j = 0 ; j < this.tabPieces[0].length ; j++)
-			{
-				if(piece.deplacementValide(i, j, this.tabPieces)) return true;
-			}
-		}
-		return false;
-	}
-
-	#estAttaque(piece)
-	{
-		for( let i = 0 ; i < this.tabPieces.length ; i++ )
-		{	
-			for ( let j = 0 ; j < this.tabPieces[0].length ; j++)
-			{
-				if(	   this.tabPieces[i][j] !== null
-					&& !this.tabPieces[i][j].estMemeCouleur(piece)
-				    && this.tabPieces[i][j].deplacementValide(piece.x, piece.y, this.tabPieces)) return true;
-			}
-		}
-		return false;
+		return roi.echecEtMat(this.tabPieces);
 	}
 
 
 	update()
 	{
-		console.log(this.pieceSelectionnee);
+		//console.log(this.pieceSelectionnee);
 
 		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
 			if(this.pieceSelectionnee.update())
@@ -128,7 +101,6 @@ export default class Plateau
 			{
 				if(!this.deplacementEnCours && this.pieceSelectionnee !== null && this.pieceSelectionnee.deplacementValide(i, j, this.tabPieces))
 					this.#drawCercle(ctx, i, j, 'red');
-				    console.log(i,j)
 				if(!this.deplacementEnCours && this.tabPieces[i][j] !== null && this.tabPieces[i][j] === this.pieceSelectionnee)
 					this.#drawCercle(ctx, i, j, 'green');
 				if(this.tabPieces[i][j] !== null) 
