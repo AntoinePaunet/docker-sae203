@@ -1,1 +1,33 @@
-[Aller à la page HTML](index.html)
+<!DOCTYPE html>
+<html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="refresh" content="0; URL=/html/index.html">
+            <title>Echec</title>
+            <link rel="stylesheet" href="html/style.css">
+        </head>
+
+        <body>
+
+            <div class="menu">
+            <a href="https://ecole.apprendre-les-echecs.com/regles-echecs/">Comment jouer ?</a>
+            <a href="#Jouer">Jouer</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQautoplay=1">Crédit</a>
+            <a href="#contact">Contact</a>
+            </div>
+
+            <div class="bande bande-gauche" id=""><canvas id="canvaNoir" width="120px" height="3000px">600 Seconde(s)</canvas></div>
+            <div class="bande bande-droite" id=""><canvas id="canvaBlanc" width="120px" height="3000px">600 Seconde(s)</canvas></div>
+
+        <div class="zone-centrale">
+            <p id="chronoNoir">600 seconde(s)</p>
+            <canvas id="plateau" height="700px" width="700px"></canvas>
+            <p id="chronoBlanc">600 seconde(s)</p>
+        </div>
+
+        <script type="module" src="/html/main.js"></script>
+
+        </body>
+</html>
+
