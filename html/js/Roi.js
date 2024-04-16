@@ -14,16 +14,9 @@ export default class Roi extends Piece
 
 	echecMat(tabPieces)
 	{
-		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) 
-		{
-			console.log("echec et mat")
-			Piece.roiEnEchec = true;
-		}
-		Piece.roiEnEchec = false;
-
-		return Piece.roiEnEchec;
+		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) console.log("echec et mat")
+		return !this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces);
 	}
-
 	#positionAttaquee(xDest, yDest, tabPieces)
 	{
 		for( let i = 0 ; i < tabPieces.length ; i++ )
