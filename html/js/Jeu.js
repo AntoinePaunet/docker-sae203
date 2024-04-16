@@ -14,6 +14,7 @@ export default class Jeu
 
 	update()
 	{
+		//console.log(this.tour);
 		this.plateau.update();
 		this.finJeu = this.plateau.echecEtMat(this.tour);
 	}
@@ -25,37 +26,21 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
-		let piece = this.plateau.tabPieces[x][y]
-
-		if(piece !== null && ((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "Blanc")))
-		{
-			console.log(false)
-			return false;
-		}
-
+		let piece = this.plateau.tabPieces[x][y];
 		
 		if(this.plateau.pieceSelectionnee === piece)
 		{
 			this.plateau.pieceSelectionnee = null;
-			return;
 		}
-
-		if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-		{
-			this.plateau.deplacementEnCours = true;
-			this.setTour();
-		}
-		else
+		else if (this.plateau.pieceSelectionnee === null && piece !== null && piece.getCouleur() === this.tour)
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
+		else if(   this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+		{
+			this.plateau.deplacementEnCours = true;
+		}
 	}
-
-	getTour()
-	{
-		return this.tour;
-	}
-
 
 	setTour()
 	{

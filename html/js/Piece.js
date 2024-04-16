@@ -23,9 +23,16 @@ export default class Piece
 	{
 		if(autrePiece === null) return false;
 
-		return (1 <= this.num && this.num <= 6) === (1 <= autrePiece.num && autrePiece.num <= 6);
+		return this.getCouleur() === autrePiece.getCouleur();
 	}
-	
+
+	getCouleur()
+	{
+		if (1 <= this.num && this.num <= 6)  return "Blanc";
+		if (7 <= this.num && this.num <= 12) return "Noir";
+		return "";
+	}
+
 	getNum () {return this.num;}
 	getX   () {return this.x;}
 	getY   () {return this.y;}
