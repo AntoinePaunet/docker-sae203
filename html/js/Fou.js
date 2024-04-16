@@ -1,5 +1,5 @@
 import Piece from "./Piece.js";
-
+import Roi from "./Roi.js";
 
 export default class Fou extends Piece 
 {
@@ -19,9 +19,11 @@ export default class Fou extends Piece
 		if(this.x > xDest) dirX = -1;
 		if(this.y > yDest) dirY = -1;
 
+		let piece = null;
 		for(let k = 1; k < Math.abs(xDest-this.x); k++)
 		{
-			if (tabPieces[this.x+k*dirX][this.y+k*dirY] !== null) return true;
+			piece = tabPieces[this.x+k*dirX][this.y+k*dirY];
+			if (piece !== null && !piece instanceof Roi) return true;
 		}
 		return false;
 	}
