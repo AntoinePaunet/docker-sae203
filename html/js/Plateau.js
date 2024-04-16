@@ -121,7 +121,6 @@ export default class Plateau
 				v = i - 8;
 			}
 			ctxBlanc.drawImage(this.tabPieceBlanche[i].imgPiece, (this.tabPieceBlanche[i].num-1) * 80, 0, 80, 80, j, v*87.5, 87.5, 87.5);
-			j = -20;
 		}
 
 		for(let i = 0 ; i < this.tabPieceNoir.length ; i++)
