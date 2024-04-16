@@ -8,17 +8,12 @@ export default class Jeu
 		this.tpsBlanc = 600;
 		this.tpsNoir = 600;
 		this.tour = "Blanc";
-		this.finJeu = false;
 		this.plateau = new Plateau(this);
 	}
 
 	update()
 	{
 		this.plateau.update();
-		this.finJeu = this.plateau.echecMat(this.tour);
-		if(this.finJeu){
-			console.log("fin jeu");
-		}
 	}
 
 	draw(ctx, ctxBlanc, ctxNoir)
@@ -28,8 +23,7 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
-		console.log(this.plateau.deplacementEnCours || this.finJeu);
-		if(this.plateau.deplacementEnCours || this.finJeu) return false;
+		if(this.plateau.deplacementEnCours) return false;
 
 		let piece = this.plateau.tabPieces[x][y];
 
@@ -52,27 +46,6 @@ export default class Jeu
 			}
 		}
 		
-		
-		
-		/*
-		// mode debuggage (pas de tours)		
-		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
-		{
-			this.plateau.pieceSelectionnee = piece;
-		}
-		else if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-		{
-			if(piece != null && piece.getCouleur() == "Noir")
-			{
-				this.plateau.tabPieceNoir.push(piece);
-			}else if(piece != null){
-				this.plateau.tabPieceBlanche.push(piece);
-			}
-
-			this.plateau.deplacementEnCours = true;
-			console.log(this.plateau.tabPieceBlanche)
-		}
-		*/
 	}
 
 	setTour()

@@ -24,7 +24,7 @@ export default class Fou extends Piece
 		for(let k = 1; k < Math.abs(xDest-this.x); k++)
 		{
 			piece = tabPieces[this.x+k*dirX][this.y+k*dirY];
-			if (piece !== null && piece.getType() === "Roi")return false;
+			if (piece !== null && piece.getType() === "Roi" && piece.getCouleur() !== this.getCouleur())return false;
 			if (piece !== null) return true;
 		}
 		return false;

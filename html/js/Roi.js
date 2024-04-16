@@ -9,23 +9,25 @@ export default class Roi extends Piece
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) <= 1 
 			   && Math.abs(yDest-this.y) <= 1;
-			   //&& !this.#positionAttaquee(xDest, yDest, tabPieces);
     }
 	
+	/*
 	echecMat(tabPieces)
 	{
 		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) console.log("echec et mat")
 		return !this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces);
 	}
+
 	#positionAttaquee(xDest, yDest, tabPieces)
 	{
 		for( let i = 0 ; i < tabPieces.length ; i++ )
 		{	
 			for ( let j = 0 ; j < tabPieces[0].length ; j++)
 			{
-				if(	   tabPieces[i][j] !== null
-					&& (!tabPieces[i][j].estMemeCouleur(this)
-				   		&& tabPieces[i][j].deplacementValide(xDest, yDest, tabPieces))) return true;
+				
+				if(tabPieces[i][j] !== null
+					&& !tabPieces[i][j].estMemeCouleur(this) 
+					&& tabPieces[i][j].deplacementValide(xDest, yDest, tabPieces)) return true;
 			}
 		}
 		return false;
@@ -42,4 +44,5 @@ export default class Roi extends Piece
 		}
 		return false;
 	}
+	*/
 }

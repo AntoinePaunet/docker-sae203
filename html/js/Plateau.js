@@ -73,6 +73,7 @@ export default class Plateau
 		}
 	}
 
+	/*
 	echecMat(tour)
 	{
 		let roi = this.roiBlanc;
@@ -80,6 +81,7 @@ export default class Plateau
 
 		return roi.echecMat(this.tabPieces);
 	}
+	*/
 
 	update()
 	{

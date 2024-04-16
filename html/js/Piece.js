@@ -87,44 +87,4 @@ export default class Piece
 	{
 		ctx.drawImage(this.imgPiece, (this.num-1) * 80, 0, 80, 80, this.xImg*87.5, this.yImg*87.5, 87.5, 87.5);
 	}
-
-	/*
-	echecMatFutur(xDest, yDest, tabPieces) // On suppose que deplacement est valide
-	{
-		let tabPiecesBis = [];
-		
-		for( let i = 0 ; i < tabPieces.length ; i++ )
-		{
-			let tmp = [];
-			for ( let j = 0 ; j < tabPieces[0].length ; j++)
-			{
-				if(tabPieces[i][j] === this)        tmp[j] = null;
-				else if(i === xDest && j === yDest) tmp[j] = this
-				else                                tmp[j] = tabPieces[i][j];
-			}
-			tabPiecesBis.push(tmp);
-		}
-
-		let roi = this.#getRoi(tabPieces);
-
-		return roi.echecMat(tabPiecesBis)
-	}
-	*/
-
-	#getRoi(tabPieces)
-	{
-		let roi = null;
-		
-		for( let i = 0 ; i < tabPieces.length ; i++ )
-		{
-			for ( let j = 0 ; j < tabPieces[0].length ; j++)
-			{
-				if(    tabPieces[i][j] !== null 
-					&& tabPieces[i][j].getType() === "Roi"
-				    && tabPieces[i][j].estMemeCouleur(this)) roi = tabPieces[i][j];
-			}
-		}
-
-		return roi;
-	}
 }
