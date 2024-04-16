@@ -31,12 +31,9 @@ export default class Jeu
 		{
 			this.plateau.pieceSelectionnee = null;
 		}
-<<<<<<< HEAD
 		/*
 		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.tour)
-=======
-		else if (piece !== null && piece.getCouleur() === this.tour)
->>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
+
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
@@ -54,8 +51,7 @@ export default class Jeu
 		
 		
 
-		// mode debuggage (pas de tours)		
-<<<<<<< HEAD
+		// mode debuggage (pas de tours)
 		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
 		{
 			this.plateau.pieceSelectionnee = piece;
@@ -72,16 +68,6 @@ export default class Jeu
 			this.plateau.deplacementEnCours = true;
 			console.log(this.plateau.tabPieceBlanche)
 		}
-=======
-	// 	else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
-	// 	{
-	// 		this.plateau.pieceSelectionnee = piece;
-	// 	}
-	// 	else if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-	// 	{
-	// 		this.plateau.deplacementEnCours = true;
-	// 	}
->>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 	}
 
 	setTour()

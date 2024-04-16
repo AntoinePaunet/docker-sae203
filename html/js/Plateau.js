@@ -125,11 +125,7 @@ export default class Plateau
 		for(let i = 0 ; i < this.tabPieceNoir.length ; i++)
 		{
 			v = i;
-<<<<<<< HEAD
-			if(i == 8)
-=======
 			if(i >= 8)
->>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 			{
 				j = 40;
 				v = i - 8;
