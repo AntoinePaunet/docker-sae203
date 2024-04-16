@@ -14,22 +14,9 @@ export default class Roi extends Piece
 
 	echecMat(tabPieces)
 	{
-<<<<<<< HEAD
 		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) console.log("echec et mat")
 		return !this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces);
 	}
-=======
-		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) 
-		{
-			console.log("echec et mat")
-			Piece.roiEnEchec = true;
-		}
-		Piece.roiEnEchec = false;
-
-		return Piece.roiEnEchec;
-	}
-
->>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 	#positionAttaquee(xDest, yDest, tabPieces)
 	{
 		for( let i = 0 ; i < tabPieces.length ; i++ )
@@ -37,8 +24,8 @@ export default class Roi extends Piece
 			for ( let j = 0 ; j < tabPieces[0].length ; j++)
 			{
 				if(	   tabPieces[i][j] !== null
-					&& !tabPieces[i][j].estMemeCouleur(this)
-				    && tabPieces[i][j].deplacementValide(xDest, yDest, tabPieces)) return true;
+					&& (!tabPieces[i][j].estMemeCouleur(this)
+				   		&& tabPieces[i][j].deplacementValide(xDest, yDest, tabPieces))) return true;
 			}
 		}
 		return false;

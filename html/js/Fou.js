@@ -10,7 +10,7 @@ export default class Fou extends Piece
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) == Math.abs(yDest-this.y)
 			   && !this.autrePiece(xDest, yDest, tabPieces)
-			   
+
 	}
 
 	autrePiece(xDest, yDest, tabPieces)
@@ -24,8 +24,7 @@ export default class Fou extends Piece
 		for(let k = 1; k < Math.abs(xDest-this.x); k++)
 		{
 			piece = tabPieces[this.x+k*dirX][this.y+k*dirY];
-			
-			if (piece instanceof Roi)return false;
+			if (piece !== null && piece.getType() === "Roi")return false;
 			if (piece !== null) return true;
 		}
 		return false;

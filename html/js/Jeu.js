@@ -31,9 +31,11 @@ export default class Jeu
 		{
 			this.plateau.pieceSelectionnee = null;
 		}
+
 		/*
 		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.tour)
 
+		else if (piece !== null && piece.getCouleur() === this.tour)
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
@@ -51,7 +53,7 @@ export default class Jeu
 		
 		
 
-		// mode debuggage (pas de tours)
+		// mode debuggage (pas de tours)		
 		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
 		{
 			this.plateau.pieceSelectionnee = piece;

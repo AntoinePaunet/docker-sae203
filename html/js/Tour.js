@@ -24,23 +24,15 @@ export default class Tour extends Piece
 			for(let k = 1; k < Math.abs(xDest-this.x); k++)
 			{
 				piece = tabPieces[this.x+k*dirX][this.y];
-<<<<<<< HEAD
-				if (piece !== null && !piece instanceof Roi) return true;
-=======
-				if (piece instanceof Roi)return false;
+				if (piece !== null && piece.getType() === "Roi")return false;
 				if (piece !== null) return true;
->>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 			}
 		else
 			for(let k = 1; k < Math.abs(yDest-this.y); k++)
 			{
 				piece = tabPieces[this.x][this.y+k*dirY]; 
-<<<<<<< HEAD
-				if (piece !== null && !piece instanceof Roi) return true;
-=======
-				if (piece instanceof Roi)return false;
+				if (piece !== null && piece.getType() === "Roi")return false;
 				if (piece !== null) return true;
->>>>>>> ccb27164347eba1c18a97af48b18eb7d30338f6d
 			}
 		return false;
 	}
