@@ -10,7 +10,7 @@ export default class Piece
 		this.yImg = y;
 		
 		this.imgPiece = new Image();
-		this.imgPiece.src = "./pieces.png";
+		this.imgPiece.src = "../pieces.png";
     }
 
 	deplacementValide(xDest, yDest, tabPieces) 
