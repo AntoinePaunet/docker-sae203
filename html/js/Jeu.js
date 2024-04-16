@@ -23,9 +23,10 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
-		if(this.plateau.pieceSelectionnee == this.plateau.tabPieces[x][y])
+		let piece = this.plateau.tabPieces[x][y]
+		
+		if(this.plateau.pieceSelectionnee === piece)
 		{
-			console.log(this.plateau.pieceSelectionnee == this.plateau.tabPieces[x][y])
 			this.plateau.pieceSelectionnee = null;
 			return;
 		}
