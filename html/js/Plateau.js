@@ -128,6 +128,7 @@ export default class Plateau
 			{
 				if(!this.deplacementEnCours && this.pieceSelectionnee !== null && this.pieceSelectionnee.deplacementValide(i, j, this.tabPieces))
 					this.#drawCercle(ctx, i, j, 'red');
+				    console.log(i,j)
 				if(!this.deplacementEnCours && this.tabPieces[i][j] !== null && this.tabPieces[i][j] === this.pieceSelectionnee)
 					this.#drawCercle(ctx, i, j, 'green');
 				if(this.tabPieces[i][j] !== null) 
