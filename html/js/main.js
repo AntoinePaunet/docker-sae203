@@ -7,6 +7,7 @@ let canvaNoir = document.getElementById("canvaNoir");
 const ctxBlanc = canvaBlanc.getContext("2d");
 const ctxNoir = canvaNoir.getContext("2d");
 
+
 let jeu = new Jeu();
 
 canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
