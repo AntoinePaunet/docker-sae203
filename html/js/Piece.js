@@ -46,7 +46,6 @@ export default class Piece
 	{
 		if(this.xDest === this.x && this.yDest === this.y) return true;
 
-		console.log(this)
 		if(this.xDest > this.x) this.x += this.vitesse;
 		if(this.xDest < this.x) this.x -= this.vitesse;
 		if(this.yDest > this.y) this.y += this.vitesse;
