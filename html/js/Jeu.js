@@ -5,15 +5,18 @@ export default class Jeu
 {
 	constructor()
 	{
-		this.plateau = new Plateau();
 		this.tpsBlanc = 600;
 		this.tpsNoir = 600;
 		this.tour = "Blanc";
+		this.finJeu = false;
+		this.plateau = new Plateau(this);
 	}
 
 	update()
 	{
+		//console.log(this.tour);
 		this.plateau.update();
+		this.finJeu = this.plateau.echecEtMat(this.tour);
 	}
 
 	draw(ctx)
@@ -23,71 +26,39 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
-		let piece = this.plateau.tabPieces[x][y]
+		let piece = this.plateau.tabPieces[x][y];
 		
 		if(this.plateau.pieceSelectionnee === piece)
 		{
 			this.plateau.pieceSelectionnee = null;
-			return;
 		}
-
-		if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-		{
-			this.plateau.deplacementEnCours = true;
-		}
-		else
+		else if (this.plateau.pieceSelectionnee === null && piece !== null && piece.getCouleur() === this.tour)
 		{
 			this.plateau.pieceSelectionnee = piece;
+		}
+		else if(   this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+		{
+			this.plateau.deplacementEnCours = true;
 		}
 		
 
 		/*
-		if(this.plateau.pieceSelectionnee === null)
-			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
-		else if (this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-			this.plateau.deplacementEnCours = true;
-		*/
-		/*
-		if(this.plateau.pieceSelectionnee === null || !this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
-		else
+		// mode debuggage (pas de tours)		
+		else if (this.plateau.pieceSelectionnee === null)
+		{
+			this.plateau.pieceSelectionnee = piece;
+		}
+		else if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
 		{
 			this.plateau.deplacementEnCours = true;
 		}
 		*/
 	}
-
-	tempsTour()
-	{
-		if( this.tour === "Noir" )
-		{
-			while( this.tour === "Noir" )
-			{
-				this.tpsNoir--;
-				setTimeout(1000);
-			}
-		}
-		else
-		{
-			while( this.tour === "Blanc" )
-			{
-				this.tpsBlanc--;
-				setTimeout(1000);
-			}
-		}
-	}
-
-
-	getTour()
-	{
-		return this.tour;
-	}
-
 
 	setTour()
 	{
 		if( this.tour == "Noir" )
-			this.tour == "Blanc";
+			this.tour = "Blanc";
 		else 
 			this.tour = "Noir";
 	}

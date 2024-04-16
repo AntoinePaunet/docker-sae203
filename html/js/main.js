@@ -3,7 +3,6 @@ import Jeu from "./Jeu.js";
 
 let canva = document.getElementById("plateau");
 
-//let ctrl = new Controlleur(canva);
 let jeu = new Jeu();
 
 canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
@@ -18,12 +17,31 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 
 window.addEventListener('load',function(){
     const ctx = canva.getContext("2d");
-	function animate(){
 
+	// let lastTime = 0
+	function animate(){
+;
 		jeu.update()
         jeu.draw(ctx);
 
         requestAnimationFrame(animate);
     }
-    animate();
+    animate(0);
+
+    const intervalId = setInterval(function() 
+    {
+        if(jeu.tour == "Noir")
+        {
+            let tpsNoirDoc = document.getElementById("chronoNoir");
+            jeu.tpsNoir--;
+            tpsNoirDoc.textContent = jeu.tpsNoir + "Seconde(s)";
+        }else{
+            let tpsBlancDoc = document.getElementById("chronoBlanc");
+            jeu.tpsBlanc--;
+            tpsBlancDoc.textContent = jeu.tpsBlanc + " Seconde(s)";
+        }
+  
+      }, 1000);
+
+
 });
