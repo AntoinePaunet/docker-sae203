@@ -32,11 +32,11 @@ export default class Jeu
 		{
 			this.plateau.pieceSelectionnee = null;
 		}
-		else if (this.plateau.pieceSelectionnee === null && piece !== null && piece.getCouleur() === this.tour)
+		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.tour)
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
-		else if(   this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+		else if (this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
 		{
 			this.plateau.deplacementEnCours = true;
 		}
@@ -44,7 +44,7 @@ export default class Jeu
 
 		/*
 		// mode debuggage (pas de tours)		
-		else if (this.plateau.pieceSelectionnee === null)
+		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.plateau.pieceSelectionnee.getCouleur())
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}

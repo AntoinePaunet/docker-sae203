@@ -9,8 +9,8 @@ export default class Roi extends Piece
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) <= 1 
 			   && Math.abs(yDest-this.y) <= 1
-			   && !this.#autrePiece(xDest, yDest, tabPieces)
-			   && !this.#positionAttaquee(xDest, yDest, tabPieces);
+			   && !this.#autrePiece(xDest, yDest, tabPieces);
+			   //&& !this.#positionAttaquee(xDest, yDest, tabPieces);
     }
 
 	echecEtMat(tabPieces)
