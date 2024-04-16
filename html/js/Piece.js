@@ -1,5 +1,7 @@
 export default class Piece
 {
+	static roiEnEchec;
+	
 	constructor(num, x, y)
 	{
 		this.num = num;
@@ -11,6 +13,8 @@ export default class Piece
 		
 		this.imgPiece = new Image();
 		this.imgPiece.src = "../images/pieces.png";
+
+		this.roiEnEchec = false;
     }
 
 	deplacementValide(xDest, yDest, tabPieces) 
