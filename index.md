@@ -1,1 +1,1 @@
-[Aller au Morpion](./html/index.html)
+[Aller au Morpion](html/index.html)
