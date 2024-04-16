@@ -3,10 +3,11 @@ import Piece from "./Piece.js";
 
 export default class Reine extends Piece
 {
-    constructor(lig, col, num) {super(lig,col,num)}
+    constructor(num, x, y) {super(num, x, y)}
 
-    deplacementValide(ligDest, colDest)
+    deplacementValide(xDest, yDest, tabPieces)
     {
-        return Math.abs(ligDest-this._lig) == Math.abs(colDest-this._col) || ligDest==this.lig || colDest==this._col;
+        return    super.deplacementValide(xDest, yDest, tabPieces) 
+		       && (Math.abs(xDest-this.x) == Math.abs(yDest-this.y) || xDest==this.x || yDest==this.y);
     }
 }

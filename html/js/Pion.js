@@ -2,12 +2,16 @@ import Piece from "./Piece.js";
 
 export default class Pion extends Piece
 {
-	constructor(lig, col, num) {super(lig, col, num);}
+	constructor(num, x, y) {super(num, x, y);}
 
-	deplacementValide(ligDest, colDest)
+	deplacementValide(xDest, yDest, tabPieces)
 	{
-		console.log(ligDest, colDest);
-		console.log(this.lig, this.col);
-		return Math.abs(ligDest-this.lig) == 1 && Math.abs(colDest-this.col) == 1;
+		/*
+		let distParcourable = 1;
+		if(!this.aDeplace) distParcourable = 2;
+		
+		let res = xDest===this.x && Math.abs(yDest-this.y) <= distParcourable;
+		*/
+		return super.deplacementValide(xDest, yDest, tabPieces);
 	}
 }

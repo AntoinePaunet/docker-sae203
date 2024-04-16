@@ -2,10 +2,18 @@ import Piece from "./Piece.js";
 
 export default class Roi extends Piece
 {
-    constructor(lig, col, num) {super(lig,col,num)}
+    constructor(num, x, y) {super(num, x, y)}
 
-    déplacementValide(ligDest, colDest)
-    {
-        return Math.abs(ligDest-this.lig) <= 1 && Math.abs(colDest-this.col) <= 1;
+    deplacementValide(xDest, yDest, tabPieces)
+    {		
+		return    super.deplacementValide(xDest, yDest, tabPieces) 
+		       && Math.abs(xDest-this.x) <= 1 
+			   && Math.abs(yDest-this.y) <= 1
+			   && !this.autrePiece(xDest, yDest, tabPieces);
     }
+
+	autrePiece(xDest, yDest, tabPieces)
+	{
+		return tabPieces[xDest][yDest] !== null;
+	}
 }

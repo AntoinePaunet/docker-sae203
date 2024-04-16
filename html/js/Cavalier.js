@@ -3,11 +3,12 @@ import Piece from "./Piece.js";
 
 export default class Cavalier extends Piece 
 {
-	constructor(lig, col, num) {super(lig, col, num)}
+	constructor(num, x, y) {super(num, x, y);}
 
-	deplacementValide(ligDest, colDest) 
+	deplacementValide(xDest, yDest, tabPieces) 
 	{
-		return (Math.abs(ligDest-this.lig) == 2 && Math.abs(colDest-this.col) == 1) 
-			|| (Math.abs(ligDest-this.lig) == 1 && Math.abs(colDest-this.col) == 2);
+		return super.deplacementValide(xDest, yDest, tabPieces)
+			&& ((Math.abs(xDest-this.x) == 2 && Math.abs(yDest-this.y) == 1) 
+			||  (Math.abs(xDest-this.x) == 1 && Math.abs(yDest-this.y) == 2));
 	}
 }

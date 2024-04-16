@@ -9,77 +9,124 @@ export default class Plateau
 {
 	constructor()
 	{
-		this.plateau = [	[15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
-							[15,  2,  1,  0,  0,  0,  0,  7,  8, 15],
-							[15,  3,  1,  0,  0,  0,  0,  7,  9, 15],
-							[15,  4,  1,  0,  0,  0,  0,  7, 10, 15],
-							[15,  5,  1,  0,  0,  0,  0,  7, 11, 15],
-							[15,  6,  1,  0,  0,  0,  0,  7, 12, 15],
-							[15,  4,  1,  0,  0,  0,  0,  7, 10, 15],
-							[15,  3,  1,  0,  0,  0,  0,  7,  9, 15],
-							[15,  2,  1,  0,  0,  0,  0,  7,  8, 15],
-							[15, 15, 15, 15, 15, 15, 15, 15, 15, 15], //Anti erreur
-																		];
-		this.length = 8;
-		this.nbPieces = 32;
+		/*
+		this.initPlateau = [[ 8,  9, 10, 11, 12, 10,  9,  8],
+		                    [ 7,  7,  7,  7,  7,  7,  7,  7],
+		                    [ 0,  0,  0,  0,  0,  0,  0,  0],
+		                    [ 0,  0,  0,  0,  0,  0,  0,  0],
+		                    [ 0,  0,  0,  0,  0,  0,  0,  0],
+		                    [ 0,  0,  0,  0,  0,  0,  0,  0],
+							[ 1,  1,  1,  1,  1,  1,  1,  1],
+							[ 2,  3,  4,  5,  6,  4,  3,  2]];*/
+		this.initPlateau = [[ 8,  7,  0,  0,  0,  0,  1,  2],
+		                    [ 9,  7,  0,  0,  0,  7,  1,  3],
+		                    [10,  7,  0,  0,  0,  0,  1,  4],
+		                    [11,  7,  0,  0,  0,  0,  1,  5],
+		                    [12,  7,  0,  0,  0,  0,  1,  6],
+		                    [10,  7,  0,  0,  0,  0,  1,  4],
+							[ 9,  7,  0,  0,  0,  0,  1,  3],
+							[ 8,  7,  0,  0,  0,  0,  1,  2]];
+
 		this.tabPieces = [];
-		this.genererPieces();
+		this.genererTabPieces();
+		this.deplacementEnCours = false;
+		this.pieceSelectionnee = null;
+
+		this.bg = new Image();
+		this.bg.src = "../images/plateau.png";
 	}
 
-	genererPieces()
+	genererTabPieces()
 	{
-		let cpt = 0;
-		for( let i = 0 ; i < this.plateau.length ; i++ )
+		for( let i = 0 ; i < this.initPlateau.length ; i++ )
 		{
-			for ( let j = 0 ; j < this.plateau[0].length ; j++)
+			let tmp = [];
+			for ( let j = 0 ; j < this.initPlateau[0].length ; j++)
 			{
-				if(!(this.plateau[i][j] == 15 || this.plateau[i][j] == 0))
+				if(this.initPlateau[i][j] !== 0)
 				{
-					switch((this.plateau[i][j]%6) + 1)
+					let typePiece = this.initPlateau[i][j];
+					if(typePiece > 6) typePiece = typePiece - 6;
+					switch(typePiece)
 					{
-						case 1 : this.tabPieces[cpt] = new Pion(	i - 1, j - 1, this.plateau[i][j]); cpt++; break;
-						case 2 : this.tabPieces[cpt] = new Tour(	i - 1, j - 1, this.plateau[i][j]); cpt++; break;
-						case 3 : this.tabPieces[cpt] = new Cavalier(i - 1, j - 1, this.plateau[i][j]); cpt++; break;
-						case 4 : this.tabPieces[cpt] = new Fou(		i - 1, j - 1, this.plateau[i][j]); cpt++; break;
-						case 5 : this.tabPieces[cpt] = new Reine(	i - 1, j - 1, this.plateau[i][j]); cpt++; break;
-						case 6 : this.tabPieces[cpt] = new Roi(		i - 1, j - 1, this.plateau[i][j]); cpt++; break;
+						case 1  : tmp[j] = new Pion     (this.initPlateau[i][j], i, j); break;
+						case 2  : tmp[j] = new Tour     (this.initPlateau[i][j], i, j); break;
+						case 3  : tmp[j] = new Cavalier (this.initPlateau[i][j], i, j); break;
+						case 4  : tmp[j] = new Fou      (this.initPlateau[i][j], i, j); break;
+						case 5  : tmp[j] = new Reine    (this.initPlateau[i][j], i, j); break;
+						case 6  : tmp[j] = new Roi      (this.initPlateau[i][j], i, j); break;
+						default : tmp[j] = null; break;
 					}
 				}
+				else tmp[j] = null;
 			}
+			this.tabPieces.push(tmp);
 		}
+		//console.log(this.tabPieces);
 	}
-
-
-	getPieceTest(x, y)
-	{
-		console.log(x, y)
-		for(let i = 0 ; i < this.tabPieces.length ; i++)
-		{
-			if(this.tabPieces[i].lig == x && this.tabPieces[i].col == y)
-			{
-				return this.tabPieces[i];
-			}
-		}
-		return null;
-	}
-
 
 	getPiece(x, y)
 	{
-		for(let i = 0 ; i < this.tabPieces.length ; i++)
-		{
-			if(this.tabPieces[i].lig == x && this.tabPieces[i].col == y)
-			{
-				return this.tabPieces[i];
-			}
-		}
-
-		return null;
+		return this.tabPieces[x][y];
 	}
 
-	setPiece(x, y, piece)
+	update()
 	{
-		this.plateau[x,y] = piece;
+		/*
+		for( let i = 0 ; i < this.initPlateau.length ; i++ )
+		{	
+			for ( let j = 0 ; j < this.initPlateau[0].length ; j++)
+			{
+				if(this.tabPieces[i][j] !== null) this.tabPieces[i][j].update(this)
+			}
+		}
+		*/
+		/*
+		if(this.deplacementEnCours) 
+		{
+			let deplacementTermine = this.pieceSelectionnee.update();
+			if(deplacementTermine)
+			{
+				this.deplacementEnCours = false;
+				this.pieceSelectionnee = null;
+			}
+		}
+		*/
+		console.log(this.pieceSelectionnee);
+
+		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
+			if(this.pieceSelectionnee.update())
+			{
+				this.pieceSelectionnee = null;
+				this.deplacementEnCours = false;
+			}
+	}
+
+	draw(ctx)
+	{
+		ctx.drawImage(this.bg, 0, 0);
+
+		for( let i = 0 ; i < this.initPlateau.length ; i++ )
+		{	
+			for ( let j = 0 ; j < this.initPlateau[0].length ; j++)
+			{
+				if(!this.deplacementEnCours && this.pieceSelectionnee !== null && this.pieceSelectionnee.deplacementValide(i, j, this.tabPieces))
+					this.#drawCercle(ctx, i, j, 'red');
+				if(!this.deplacementEnCours && this.tabPieces[i][j] !== null && this.tabPieces[i][j] === this.pieceSelectionnee)
+					this.#drawCercle(ctx, i, j, 'green');
+				if(this.tabPieces[i][j] !== null) 
+					this.tabPieces[i][j].draw(ctx);
+			}
+		}
+	}
+
+	#drawCercle(ctx, x, y, couleur)
+	{
+		ctx.beginPath();
+		ctx.arc(x * 87.5 + 42.5, y * 87.5 + 42.5, 40, 0, Math.PI * 2);
+		ctx.fillStyle = couleur;
+		ctx.fill();
+		ctx.closePath();
 	}
 }
 

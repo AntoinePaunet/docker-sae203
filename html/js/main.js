@@ -1,9 +1,10 @@
-import Controlleur from "./Controlleur.js";
+import Jeu from "./Jeu.js";
 
 
 let canva = document.getElementById("plateau");
 
-let ctrl = new Controlleur(canva);
+//let ctrl = new Controlleur(canva);
+let jeu = new Jeu();
 
 canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
 {
@@ -11,14 +12,16 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 	let x = e.clientX - rect.left;
 	let y = e.clientY - rect.top;
 
-    ctrl.clickedAt(Math.floor(x / 87.5), Math.floor(y / 87.5));
+    jeu.clickedAt(Math.floor(x / 87.5), Math.floor(y / 87.5));
 })
 
 
 window.addEventListener('load',function(){
-    function animate(){
+    const ctx = canva.getContext("2d");
+	function animate(){
 
-        ctrl.interface.drawMap();
+		jeu.update()
+        jeu.draw(ctx);
 
         requestAnimationFrame(animate);
     }

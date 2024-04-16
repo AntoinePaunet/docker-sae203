@@ -2,12 +2,32 @@ import Piece from "./Piece.js";
 
 export default class Tour extends Piece
 {
-    constructor(lig, col, num) {super(lig,col,num)}
+    constructor(num, x, y) {super(num, x, y)}
 
-    déplacementValide(ligDest, colDest)
+    deplacementValide(xDest, yDest, tabPieces)
     {
-		console.log(ligDest, colDest);
-		console.log(this.lig, this.col);
-        return ligDest==this.lig || colDest==this.col;
+        return    super.deplacementValide(xDest, yDest, tabPieces) 
+		       && (xDest===this.x || yDest===this.y)
+			   && !this.autrePiece(xDest, yDest, tabPieces);
     }
+
+	autrePiece(xDest, yDest, tabPieces)
+	{
+		let dirX = 1;
+		let dirY = 1;
+		if(this.x > xDest) dirX = -1;
+		if(this.y > yDest) dirY = -1;
+
+		if(yDest === this.y)
+			for(let k = 1; k < Math.abs(xDest-this.x); k++)
+			{
+				if (tabPieces[this.x+k*dirX][this.y] !== null) return true;
+			}
+		else
+			for(let k = 1; k < Math.abs(yDest-this.y); k++)
+			{
+				if (tabPieces[this.x][this.y+k*dirY] !== null) return true;
+			}
+		return false;
+	}
 }

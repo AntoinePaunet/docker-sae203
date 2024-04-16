@@ -3,10 +3,26 @@ import Piece from "./Piece.js";
 
 export default class Fou extends Piece 
 {
-	constructor(lig, col, num) {super(lig, col, num)}
+	constructor(num, x, y) {super(num, x, y)}
 
-	deplacementValide(ligDest, colDest) 
+	deplacementValide(xDest, yDest, tabPieces) 
 	{
-		return Math.abs(ligDest-this._lig) == Math.abs(colDest-this._col);
+		return    super.deplacementValide(xDest, yDest, tabPieces) 
+		       && Math.abs(xDest-this.x) == Math.abs(yDest-this.y)
+			   && !this.autrePiece(xDest, yDest, tabPieces);
+	}
+
+	autrePiece(xDest, yDest, tabPieces)
+	{
+		let dirX = 1;
+		let dirY = 1;
+		if(this.x > xDest) dirX = -1;
+		if(this.y > yDest) dirY = -1;
+
+		for(let k = 1; k < Math.abs(xDest-this.x); k++)
+		{
+			if (tabPieces[this.x+k*dirX][this.y+k*dirY] !== null) return true;
+		}
+		return false;
 	}
 }

@@ -6,42 +6,56 @@ export default class Jeu
 	constructor()
 	{
 		this.plateau = new Plateau();
-		this.tabPiece = [];
-		this.genererPiece();
 		this.tpsBlanc = 600;
 		this.tpsNoir = 600;
 		this.tour = "Blanc";
-		
 	}
 
-
-	genererPiece()
+	update()
 	{
-		let cpt = 0;
-		for(let i = 0; i < this.plateau.plateau.length ; i++)
-		{
-			for(let j = 0 ; j < this.plateau.plateau[0].length ; j++)
-			{
-				this.tabPiece[cpt] = new Piece(j, i, this.plateau.plateau[i][j]);
-				cpt++;
-			}
-		}
+		this.plateau.update();
 	}
 
+	draw(ctx)
+	{
+		this.plateau.draw(ctx);
+	}
 
+	clickedAt(x, y)
+	{
+		if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+			this.plateau.deplacementEnCours = true;
+		else
+			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
+		/*
+		if(this.plateau.pieceSelectionnee === null)
+			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
+		else if (this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+			this.plateau.deplacementEnCours = true;
+		*/
+		/*
+		if(this.plateau.pieceSelectionnee === null || !this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
+		else
+		{
+			this.plateau.deplacementEnCours = true;
+		}
+		*/
+	}
 
 	tempsTour()
 	{
-		if( this.tour = "Noir" )
+		if( this.tour === "Noir" )
 		{
-			while( this.tour == "Noir" )
+			while( this.tour === "Noir" )
 			{
 				this.tpsNoir--;
 				setTimeout(1000);
 			}
-		}else
+		}
+		else
 		{
-			while( this.tour == "Blanc" )
+			while( this.tour === "Blanc" )
 			{
 				this.tpsBlanc--;
 				setTimeout(1000);
@@ -59,20 +73,8 @@ export default class Jeu
 	setTour()
 	{
 		if( this.tour == "Noir" )
-		{
 			this.tour == "Blanc";
-		}else{
+		else 
 			this.tour = "Noir";
-		}
-	}
-
-	selection(x, y)
-	{
-		this.getPiece(x,y).selection();
-	}
-
-	deplacer(xArr, yArr)
-	{
-		this.plateau.getPiece(xDep, yDep).deplacer(xArr, yArr, this.plateau);
 	}
 }
