@@ -6,11 +6,15 @@ body {
 
 }
 
+#chronoBlanc, #chronoNoir
+{
+	border: 5px solid black;
+}
+
 #plateau
 {
 	border: 3px solid red;
 }
-
 
 
 
@@ -63,7 +67,6 @@ body {
 	margin: 0 auto;
 	width: 700px;
 	height: 700px;
-	background-color: #a87070;
 	margin-top: 50px;
 	border: #333;
 }
