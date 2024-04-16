@@ -1,1 +1,1 @@
-[Aller à la page HTML](page.html)
+[Aller à la page HTML](index.html)
