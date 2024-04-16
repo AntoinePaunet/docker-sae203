@@ -46,12 +46,12 @@ export default class Piece
 	{
 		if(this.xDest === this.x && this.yDest === this.y) return true;
 
-		/*
+		
 		if(this.xDest > this.x) this.x += this.vitesse;
 		if(this.xDest < this.x) this.x -= this.vitesse;
 		if(this.yDest > this.y) this.y += this.vitesse;
 		if(this.yDest < this.y) this.y -= this.vitesse;
-		*/
+		
 		
 		//if(Math.abs(this.xDest - this.x) < 0.1) this.x = this.xDest;
 		//if(Math.abs(this.yDest - this.y) < 0.1) this.y = this.yDest;

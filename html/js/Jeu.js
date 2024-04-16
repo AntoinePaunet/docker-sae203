@@ -23,10 +23,23 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
+		if(this.plateau.pieceSelectionnee == this.plateau.tabPieces[x][y])
+		{
+			console.log(this.plateau.pieceSelectionnee == this.plateau.tabPieces[x][y])
+			this.plateau.pieceSelectionnee = null;
+			return;
+		}
+
 		if(this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
+		{
 			this.plateau.deplacementEnCours = true;
+		}
 		else
+		{
 			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
+		}
+		
+
 		/*
 		if(this.plateau.pieceSelectionnee === null)
 			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];

@@ -92,7 +92,7 @@ export default class Plateau
 			}
 		}
 		*/
-		console.log(this.pieceSelectionnee);
+		//console.log(this.pieceSelectionnee);
 
 		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
 			if(this.pieceSelectionnee.update())
