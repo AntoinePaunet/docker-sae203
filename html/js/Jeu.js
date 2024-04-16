@@ -26,6 +26,11 @@ export default class Jeu
 	clickedAt(x, y)
 	{
 		let piece = this.plateau.tabPieces[x][y]
+
+		if((piece.getNum() < 7 && this.tour == "Noir") || (piece.getNum() > 6 && this.tour == "blanc"))
+		{
+			return false;
+		}
 		
 		if(this.plateau.pieceSelectionnee === piece)
 		{
@@ -43,24 +48,17 @@ export default class Jeu
 		}
 	}
 
-	tempsTour()
+	getTour()
 	{
-		if( this.tour === "Noir" )
-		{
-			while( this.tour === "Noir" )
-			{
-				this.tpsNoir--;
-				setTimeout(1000);
-			}
-		}
-		else
-		{
-			while( this.tour === "Blanc" )
-			{
-				this.tpsBlanc--;
-				setTimeout(1000);
-			}
-		}
+		return this.tour;
 	}
 
+
+	setTour()
+	{
+		if( this.tour == "Noir" )
+			this.tour == "Blanc";
+		else 
+			this.tour = "Noir";
+	}
 }
