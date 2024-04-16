@@ -10,7 +10,7 @@ export default class Piece
 		this.yDest = y;
 		
 		this.imgPiece = new Image();
-		this.imgPiece.src = "../images/pieces.png"
+		this.imgPiece.src = "../images/pieces.png";
     }
 
 	deplacementValide(xDest, yDest, tabPieces) 
@@ -46,17 +46,14 @@ export default class Piece
 	{
 		if(this.xDest === this.x && this.yDest === this.y) return true;
 
-		
+		console.log(this)
 		if(this.xDest > this.x) this.x += this.vitesse;
 		if(this.xDest < this.x) this.x -= this.vitesse;
 		if(this.yDest > this.y) this.y += this.vitesse;
 		if(this.yDest < this.y) this.y -= this.vitesse;
-		
-		
-		//if(Math.abs(this.xDest - this.x) < 0.1) this.x = this.xDest;
-		//if(Math.abs(this.yDest - this.y) < 0.1) this.y = this.yDest;
-		this.x = this.xDest;
-		this.y = this.yDest;
+
+		this.x = Math.round(this.x * 100) / 100;
+		this.y = Math.round(this.y * 100) / 100;
 
 		return false
 	}

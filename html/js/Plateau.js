@@ -82,7 +82,7 @@ export default class Plateau
 		}
 		*/
 		/*
-		if(this.deplacementEnCours) 
+		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
 		{
 			let deplacementTermine = this.pieceSelectionnee.update();
 			if(deplacementTermine)
@@ -92,11 +92,12 @@ export default class Plateau
 			}
 		}
 		*/
+		
 		//console.log(this.pieceSelectionnee);
 
 		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
 			if(this.pieceSelectionnee.update())
-			{
+			{ 
 				this.pieceSelectionnee = null;
 				this.deplacementEnCours = false;
 			}
