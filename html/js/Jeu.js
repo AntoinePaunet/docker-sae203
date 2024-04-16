@@ -14,7 +14,7 @@ export default class Jeu
 
 	update()
 	{
-		//console.log(this.tour);
+		console.log(this.tour);
 		this.plateau.update();
 		this.finJeu = this.plateau.echecEtMat(this.tour);
 	}
@@ -27,13 +27,13 @@ export default class Jeu
 	clickedAt(x, y)
 	{
 		let piece = this.plateau.tabPieces[x][y];
-		
+
 		if(this.plateau.pieceSelectionnee === piece)
 		{
 			this.plateau.pieceSelectionnee = null;
 		}
 		
-		else if (this.plateau.pieceSelectionnee === null || piece !== null && piece.getCouleur() === this.tour)
+		else if (this.plateau.pieceSelectionnee === null && piece !== null && piece.getCouleur() === this.tour)
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
