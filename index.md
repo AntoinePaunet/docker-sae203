@@ -1,1 +1,1 @@
-Ceci est une phrase de test.
+[Aller à la page HTML](page.html)
