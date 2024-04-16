@@ -37,7 +37,7 @@ export default class Jeu
 		}
 		else
 		{
-			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
+			this.plateau.pieceSelectionnee = piece;
 		}
 		
 
