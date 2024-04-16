@@ -26,7 +26,7 @@ export default class Reine extends Piece
             for (let k = 1; k < Math.abs(xDest - this.x); k++) 
 			{
 				piece = tabPieces[this.x + k * dirX][this.y];
-				if (piece instanceof Roi)return false;
+				if (piece !== null && piece.getType() === "Roi")return false;
                 if (piece !== null) return true;
             }
         } 
@@ -35,7 +35,7 @@ export default class Reine extends Piece
             for (let k = 1; k < Math.abs(yDest - this.y); k++) 
 			{
 				piece = tabPieces[this.x][this.y + k * dirY];
-				if (piece instanceof Roi)return false;
+				if (piece !== null && piece.getType() === "Roi")return false;
                 if (piece !== null) return true;
             }
         } 
@@ -44,7 +44,7 @@ export default class Reine extends Piece
             for (let k = 1; k < Math.abs(xDest - this.x); k++) 
 			{
 				piece = tabPieces[this.x + k * dirX][this.y + k * dirY];
-				if (piece instanceof Roi)return false;
+				if (piece !== null && piece.getType() === "Roi")return false;
                 if (piece !== null) return true;
             }
         }

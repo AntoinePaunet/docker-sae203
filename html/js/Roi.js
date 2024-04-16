@@ -31,8 +31,8 @@ export default class Roi extends Piece
 			for ( let j = 0 ; j < tabPieces[0].length ; j++)
 			{
 				if(	   tabPieces[i][j] !== null
-					&& !tabPieces[i][j].estMemeCouleur(this)
-				    && tabPieces[i][j].deplacementValide(xDest, yDest, tabPieces)) return true;
+					&& (!tabPieces[i][j].estMemeCouleur(this)
+				   		&& tabPieces[i][j].deplacementValide(xDest, yDest, tabPieces))) return true;
 			}
 		}
 		return false;
