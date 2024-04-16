@@ -1,4 +1,5 @@
 import Piece from "./Piece.js";
+import Roi from "./Roi.js";
 
 
 export default class Reine extends Piece
@@ -19,22 +20,29 @@ export default class Reine extends Piece
         if (this.x > xDest) dirX = -1;
         if (this.y > yDest) dirY = -1;
     
+		let piece = null;
         if (yDest === this.y) 
         {
-            for (let k = 1; k < Math.abs(xDest - this.x); k++) {
-                if (tabPieces[this.x + k * dirX][this.y] !== null) return true;
+            for (let k = 1; k < Math.abs(xDest - this.x); k++) 
+			{
+				piece = tabPieces[this.x + k * dirX][this.y];
+                if (piece !== null && !piece instanceof Roi) return true;
             }
         } 
         else if (xDest === this.x) 
         {
-            for (let k = 1; k < Math.abs(yDest - this.y); k++) {
-                if (tabPieces[this.x][this.y + k * dirY] !== null) return true;
+            for (let k = 1; k < Math.abs(yDest - this.y); k++) 
+			{
+				piece = tabPieces[this.x][this.y + k * dirY];
+                if (piece !== null && !piece instanceof Roi) return true;
             }
         } 
         else 
         {
-            for (let k = 1; k < Math.abs(xDest - this.x); k++) {
-                if (tabPieces[this.x + k * dirX][this.y + k * dirY] !== null) return true;
+            for (let k = 1; k < Math.abs(xDest - this.x); k++) 
+			{
+				piece = tabPieces[this.x + k * dirX][this.y + k * dirY];
+                if (piece !== null && piece instanceof Roi) return true;
             }
         }
         return false;
