@@ -34,6 +34,8 @@ export default class Plateau
 		this.genererTabPieces();
 		this.deplacementEnCours = false;
 		this.pieceSelectionnee = null;
+		this.tabPieceBlanche = [];
+		this.tabPieceNoir = [];
 
 		this.bg = new Image();
 		this.bg.src = "../images/plateau.png";
@@ -82,8 +84,6 @@ export default class Plateau
 
 	update()
 	{
-		//console.log(this.pieceSelectionnee);
-
 		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
 			if(this.pieceSelectionnee.update())
 			{ 
@@ -93,7 +93,7 @@ export default class Plateau
 			}
 	}
 
-	draw(ctx)
+	draw(ctx, ctxBlanc, ctxNoir)
 	{
 		ctx.drawImage(this.bg, 0, 0);
 
@@ -108,6 +108,31 @@ export default class Plateau
 				if(this.tabPieces[i][j] !== null) 
 					this.tabPieces[i][j].draw(ctx);
 			}
+		}
+
+		let j = -20;
+		let v = 0;
+		for(let i = 0 ; i < this.tabPieceBlanche.length ; i++)
+		{
+			v = i;
+			if(i >= 8)
+			{
+				j = 40;
+				v = i - 8;
+			}
+			ctxBlanc.drawImage(this.tabPieceBlanche[i].imgPiece, (this.tabPieceBlanche[i].num-1) * 80, 0, 80, 80, j, v*87.5, 87.5, 87.5);
+			j = -20;
+		}
+
+		for(let i = 0 ; i < this.tabPieceNoir.length ; i++)
+		{
+			v = i;
+			if(i == 8)
+			{
+				j = 40;
+				v = i - 8;
+			}
+			ctxNoir.drawImage(this.tabPieceNoir[i].imgPiece, (this.tabPieceNoir[i].num-1) * 80, 0, 80, 80, j, v*87.5, 87.5, 87.5);
 		}
 	}
 

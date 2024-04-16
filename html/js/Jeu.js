@@ -19,9 +19,9 @@ export default class Jeu
 		this.finJeu = this.plateau.echecEtMat(this.tour);
 	}
 
-	draw(ctx)
+	draw(ctx, ctxBlanc, ctxNoir)
 	{
-		this.plateau.draw(ctx);
+		this.plateau.draw(ctx, ctxBlanc, ctxNoir);
 	}
 
 	clickedAt(x, y)
@@ -38,7 +38,15 @@ export default class Jeu
 		}
 		else if(   this.plateau.pieceSelectionnee !== null && this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
 		{
+			if(piece != null && piece.getCouleur() == "Noir")
+			{
+				this.plateau.tabPieceNoir.push(piece);
+			}else if(piece != null){
+				this.plateau.tabPieceBlanche.push(piece);
+			}
+
 			this.plateau.deplacementEnCours = true;
+			console.log(this.plateau.tabPieceBlanche)
 		}
 	}
 

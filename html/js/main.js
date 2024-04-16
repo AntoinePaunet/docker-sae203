@@ -2,6 +2,10 @@ import Jeu from "./Jeu.js";
 
 
 let canva = document.getElementById("plateau");
+let canvaBlanc = document.getElementById("canvaBlanc");
+let canvaNoir = document.getElementById("canvaNoir");
+const ctxBlanc = canvaBlanc.getContext("2d");
+const ctxNoir = canvaNoir.getContext("2d");
 
 let jeu = new Jeu();
 
@@ -18,11 +22,10 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 window.addEventListener('load',function(){
     const ctx = canva.getContext("2d");
 
-	// let lastTime = 0
 	function animate(){
 ;
 		jeu.update()
-        jeu.draw(ctx);
+        jeu.draw(ctx, ctxBlanc, ctxNoir);
 
         requestAnimationFrame(animate);
     }
