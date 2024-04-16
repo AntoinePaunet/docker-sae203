@@ -25,7 +25,6 @@ export default class Jeu
 	{
 		if(this.plateau.pieceSelectionnee == this.plateau.tabPieces[x][y])
 		{
-			console.log(this.plateau.pieceSelectionnee == this.plateau.tabPieces[x][y])
 			this.plateau.pieceSelectionnee = null;
 			return;
 		}

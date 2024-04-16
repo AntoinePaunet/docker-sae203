@@ -8,7 +8,7 @@ export default class Piece
 		this.vitesse = 0.2;
 		this.xDest = x;
 		this.yDest = y;
-			
+		
 		this.imgPiece = new Image();
 		this.imgPiece.src = "../images/pieces.png"
     }
