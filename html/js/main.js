@@ -18,16 +18,30 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 window.addEventListener('load',function(){
     const ctx = canva.getContext("2d");
 
-	let lastTime = 0
-	function animate(timeStamp){
-		const deltaTime = timeStamp - lastTime;
-        lastTime = timeStamp;
-		console.log(timeStamp);
-
-		jeu.update(timeStamp)
+	// let lastTime = 0
+	function animate(){
+;
+		jeu.update()
         jeu.draw(ctx);
 
         requestAnimationFrame(animate);
     }
     animate(0);
+
+    const intervalId = setInterval(function() 
+    {
+        if(jeu.tour == "Noir")
+        {
+            let tpsNoirDoc = document.getElementById("chronoNoir");
+            jeu.tpsNoir--;
+            tpsNoirDoc.textContent = jeu.tpsNoir + "Seconde(s)";
+        }else{
+            let tpsBlancDoc = document.getElementById("chronoBlanc");
+            jeu.tpsBlanc--;
+            tpsBlancDoc.textContent = jeu.tpsBlanc + " Seconde(s)";
+        }
+  
+      }, 1000);
+
+
 });
