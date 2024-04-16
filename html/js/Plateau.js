@@ -19,7 +19,7 @@ export default class Plateau
 							[ 1,  1,  1,  1,  1,  1,  1,  1],
 							[ 2,  3,  4,  5,  6,  4,  3,  2]];*/
 		this.initPlateau = [[ 8,  7,  0,  0,  0,  0,  1,  2],
-		                    [ 9,  7,  0,  0,  0,  7,  1,  3],
+		                    [ 9,  7,  0,  0,  0,  0,  1,  3],
 		                    [10,  7,  0,  0,  0,  0,  1,  4],
 		                    [11,  7,  0,  0,  0,  0,  1,  5],
 		                    [12,  7,  0,  0,  0,  0,  1,  6],
@@ -73,7 +73,7 @@ export default class Plateau
 	echecEtMat(tour)
 	{
 		let roi = this.roiBlanc;
-		if(this.tour === "Blanc") roi = this.roiNoir;
+		if(tour === "Blanc") roi = this.roiNoir;
 
 		if(!this.#peutSeDeplacer(roi) && this.#estAttaque(roi)) console.log("echec et mat")
 		return !this.#peutSeDeplacer(roi) && this.#estAttaque(roi);

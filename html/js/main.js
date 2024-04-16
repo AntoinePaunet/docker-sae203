@@ -3,7 +3,6 @@ import Jeu from "./Jeu.js";
 
 let canva = document.getElementById("plateau");
 
-//let ctrl = new Controlleur(canva);
 let jeu = new Jeu();
 
 canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
