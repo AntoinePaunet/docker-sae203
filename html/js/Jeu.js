@@ -28,7 +28,8 @@ export default class Jeu
 
 	clickedAt(x, y)
 	{
-		if(this.plateau.deplacementEnCours || this.finJeu) return;
+		console.log(this.plateau.deplacementEnCours || this.finJeu);
+		if(this.plateau.deplacementEnCours || this.finJeu) return false;
 
 		let piece = this.plateau.tabPieces[x][y];
 

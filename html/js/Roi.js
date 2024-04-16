@@ -8,10 +8,10 @@ export default class Roi extends Piece
     {	
 		return    super.deplacementValide(xDest, yDest, tabPieces) 
 		       && Math.abs(xDest-this.x) <= 1 
-			   && Math.abs(yDest-this.y) <= 1
-			   && !this.#positionAttaquee(xDest, yDest, tabPieces);
+			   && Math.abs(yDest-this.y) <= 1;
+			   //&& !this.#positionAttaquee(xDest, yDest, tabPieces);
     }
-
+	
 	echecMat(tabPieces)
 	{
 		if(!this.#peutSeDeplacer(tabPieces) && this.#positionAttaquee(this.x, this.y, tabPieces)) console.log("echec et mat")
