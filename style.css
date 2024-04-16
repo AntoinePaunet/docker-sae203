@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Arial, sans-serif;
-	background-image: url("./fond.png");
+	background-image: url("fond.png");
 
 }
 
@@ -52,14 +52,14 @@ body {
 .bande-gauche {
 	left: 0;
 	padding: 3%;
-	background-image: url(./bande_gauche.png);
+	background-image: url(bande_gauche.png);
 	border: 5px solid rgb(0, 0, 0);
 }
 
 .bande-droite {
 	right: 0;
 	padding: 3%;
-	background-image: url(./bande_droite.png);
+	background-image: url(bande_droite.png);
 	border: 5px solid rgb(255, 255, 255);
 }
 
