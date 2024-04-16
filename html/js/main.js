@@ -3,7 +3,6 @@ import Jeu from "./Jeu.js";
 
 let canva = document.getElementById("plateau");
 
-//let ctrl = new Controlleur(canva);
 let jeu = new Jeu();
 
 canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction lors d'un clic sur le canvas.
@@ -18,12 +17,17 @@ canva.addEventListener('mousedown', function(e)// Permet de lancer une fonction 
 
 window.addEventListener('load',function(){
     const ctx = canva.getContext("2d");
-	function animate(){
 
-		jeu.update()
+	let lastTime = 0
+	function animate(timeStamp){
+		const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
+		console.log(timeStamp);
+
+		jeu.update(timeStamp)
         jeu.draw(ctx);
 
         requestAnimationFrame(animate);
     }
-    animate();
+    animate(0);
 });

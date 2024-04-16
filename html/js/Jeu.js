@@ -9,11 +9,13 @@ export default class Jeu
 		this.tpsBlanc = 600;
 		this.tpsNoir = 600;
 		this.tour = "Blanc";
+		this.finJeu = false;
 	}
 
-	update()
+	update(timeStamp)
 	{
 		this.plateau.update();
+		this.finJeu = this.plateau.echecEtMat(this.tour);
 	}
 
 	draw(ctx)
@@ -44,22 +46,6 @@ export default class Jeu
 		{
 			this.plateau.pieceSelectionnee = piece;
 		}
-		
-
-		/*
-		if(this.plateau.pieceSelectionnee === null)
-			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
-		else if (this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-			this.plateau.deplacementEnCours = true;
-		*/
-		/*
-		if(this.plateau.pieceSelectionnee === null || !this.plateau.pieceSelectionnee.deplacer(x, y, this.plateau.tabPieces))
-			this.plateau.pieceSelectionnee = this.plateau.tabPieces[x][y];
-		else
-		{
-			this.plateau.deplacementEnCours = true;
-		}
-		*/
 	}
 
 	getTour()

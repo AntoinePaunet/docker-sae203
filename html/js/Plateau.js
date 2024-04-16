@@ -19,7 +19,7 @@ export default class Plateau
 							[ 1,  1,  1,  1,  1,  1,  1,  1],
 							[ 2,  3,  4,  5,  6,  4,  3,  2]];*/
 		this.initPlateau = [[ 8,  7,  0,  0,  0,  0,  1,  2],
-		                    [ 9,  7,  0,  0,  0,  7,  1,  3],
+		                    [ 9,  7,  0,  0,  0,  0,  1,  3],
 		                    [10,  7,  0,  0,  0,  0,  1,  4],
 		                    [11,  7,  0,  0,  0,  0,  1,  5],
 		                    [12,  7,  0,  0,  0,  0,  1,  6],
@@ -27,6 +27,8 @@ export default class Plateau
 							[ 9,  7,  0,  0,  0,  0,  1,  3],
 							[ 8,  7,  0,  0,  0,  0,  1,  2]];
 
+		this.roiNoir = null;
+		this.roiBlanc = null;
 		this.tabPieces = [];
 		this.genererTabPieces();
 		this.deplacementEnCours = false;
@@ -54,7 +56,11 @@ export default class Plateau
 						case 3  : tmp[j] = new Cavalier (this.initPlateau[i][j], i, j); break;
 						case 4  : tmp[j] = new Fou      (this.initPlateau[i][j], i, j); break;
 						case 5  : tmp[j] = new Reine    (this.initPlateau[i][j], i, j); break;
-						case 6  : tmp[j] = new Roi      (this.initPlateau[i][j], i, j); break;
+						case 6  : 
+							tmp[j] = new Roi      (this.initPlateau[i][j], i, j); 
+							if(this.initPlateau[i][j] === 6)  this.roiBlanc = tmp[j];
+							if(this.initPlateau[i][j] === 12) this.roiNoir  = tmp[j];
+							break;
 						default : tmp[j] = null; break;
 					}
 				}
@@ -64,34 +70,17 @@ export default class Plateau
 		}
 	}
 
-	getPiece(x, y)
+	echecEtMat(tour)
 	{
-		return this.tabPieces[x][y];
+		let roi = this.roiBlanc;
+		if(tour === "Blanc") roi = this.roiNoir;
+
+		return roi.echecEtMat(this.tabPieces);
 	}
+
 
 	update()
 	{
-		/*
-		for( let i = 0 ; i < this.initPlateau.length ; i++ )
-		{	
-			for ( let j = 0 ; j < this.initPlateau[0].length ; j++)
-			{
-				if(this.tabPieces[i][j] !== null) this.tabPieces[i][j].update(this)
-			}
-		}
-		*/
-		/*
-		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
-		{
-			let deplacementTermine = this.pieceSelectionnee.update();
-			if(deplacementTermine)
-			{
-				this.deplacementEnCours = false;
-				this.pieceSelectionnee = null;
-			}
-		}
-		*/
-		
 		//console.log(this.pieceSelectionnee);
 
 		if(this.pieceSelectionnee !== null && this.deplacementEnCours) 
@@ -106,9 +95,9 @@ export default class Plateau
 	{
 		ctx.drawImage(this.bg, 0, 0);
 
-		for( let i = 0 ; i < this.initPlateau.length ; i++ )
+		for( let i = 0 ; i < this.tabPieces.length ; i++ )
 		{	
-			for ( let j = 0 ; j < this.initPlateau[0].length ; j++)
+			for ( let j = 0 ; j < this.tabPieces[0].length ; j++)
 			{
 				if(!this.deplacementEnCours && this.pieceSelectionnee !== null && this.pieceSelectionnee.deplacementValide(i, j, this.tabPieces))
 					this.#drawCercle(ctx, i, j, 'red');
